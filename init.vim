@@ -109,10 +109,10 @@ call plug#end()
 	"quit
 	nnoremap <leader>q :q <CR>
 	nnoremap <leader>wq :wq!<CR> 
-
+	nnoremap <leader>W :w!<CR> 
 	"open telescope (close have same binding)
 	nnoremap <C-c> :Telescope find_files<CR>
-
+	nnoremap <C-z> :Telescope file_browser<CR>
 	"split jumping
 	nnoremap <leader>h <C-w>h
 	nnoremap <leader>j <C-w>j
@@ -222,7 +222,43 @@ lua <<EOF
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require("flutter-tools").setup{capabilities = capabilities} -- use defaults
+  
+require("flutter-tools").setup {
+  ui = {
+    border = "rounded",
+    notification_style = 'plugin'
+  },
+  decorations = {
+    statusline = {
+      app_version = true,
+      device = true,
+    }
+  },
+  closing_tags = {
+    highlight = "Comment", 
+		prefix = "// ", -- character to use for close tag e.g. > Widget
+    enabled = true -- set to false to disable
+  },
+  dev_tools = {
+    autostart = true, -- autostart devtools server if not detected
+    auto_open_browser = false, -- Automatically opens devtools in the browser
+  },
+  outline = {
+    open_cmd = "30vnew", -- command to use to open the outline buffer
+    auto_open = false -- if true this will open the outline automatically when it is first populated
+  },
+  lsp = {
+    color = { -- show the derived colours for dart variables
+      enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
+      background = false, -- highlight the background
+      foreground = true, -- highlight the foreground
+      virtual_text = true, -- show the highlight using virtual text
+      virtual_text_str = "■■■■", -- the virtual text character to highlight
+    },
+  }
+}
+
+	--require("flutter-tools").setup{} -- use defaults
 	--require('lspconfig').rust_analyzer.setup{capabilities = capabilities}
 	require('rust-tools').setup{capabilities = capabilities}
 
@@ -260,7 +296,7 @@ cmp.setup {
     end, { "i", "s" }),
   }
 }
-
+	require("telescope").load_extension "file_browser"
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

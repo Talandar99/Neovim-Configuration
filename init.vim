@@ -1,8 +1,9 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"s""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
 	"LSP language server 
+	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
@@ -16,7 +17,6 @@ call plug#begin()
 	"Auto Pairs
 	Plug 'jiangmiao/auto-pairs'
 	"Rust 
-	Plug 'rust-lang/rust.vim'
 	Plug 'simrat39/rust-tools.nvim'
 	"Dart
 	Plug 'dart-lang/dart-vim-plugin'
@@ -46,16 +46,17 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	colorscheme tokyonight
+	let g:lightline = {'colorscheme': 'tokyonight'}
+	let	g:tokyonight_style = "night"
 	set number
 	set termguicolors
 	syntax on
 	set t_Co=256
 	set cursorline
 	let g:airline_theme='onehalfdark'
-  set splitbelow
+  	set splitbelow
 	set encoding=UTF-8
-		" Don't add sounds for errors
+	" Don't add sounds for errors
 	set noerrorbells                                              	
 	set number
 	set nowrap
@@ -91,7 +92,7 @@ call plug#end()
 	let g:signify_sign_show_count = 0
 	let g:signify_sign_show_text = 1
 	 "highlight SignifySignChange ctermfg=black ctermbg=yellow guifg=#000000 guibg=#ffff00
-
+	colorscheme tokyonight
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,7 +148,27 @@ call plug#end()
 	nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 	nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-" auto-format
+"no arrows
+    nnoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
+    nnoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
+    nnoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
+    nnoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
+    nnoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
+    nnoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
+    inoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
+    vnoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
+
+	" auto-format
 "	autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 "	autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 "	autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -157,11 +178,10 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set completeopt=menu,menuone,noselect
-
+lua require'lspconfig'.rust_analyzer.setup({})
 lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
-
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -215,7 +235,8 @@ lua <<EOF
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require("flutter-tools").setup{capabilities = capabilities} -- use defaults
-	require'lspconfig'.rust_analyzer.setup{capabilities = capabilities}
+	--require('lspconfig').rust_analyzer.setup{capabilities = capabilities}
+	require('rust-tools').setup{capabilities = capabilities}
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -253,9 +274,6 @@ cmp.setup {
 }
 
 EOF
-
-
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Links

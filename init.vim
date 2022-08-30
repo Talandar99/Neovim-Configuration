@@ -133,7 +133,7 @@ call plug#end()
   nmap <leader>st :SignifyToggle<CR> 
 	nmap <leader>sh :SignifyToggleHighlight<CR>
 	"Git
-	nmap <leader>G <cmd>G<CR>
+	nmap gq <cmd>0G<CR>
 	" LSP config 
 	nnoremap <silent> ty <cmd>tab split <CR>
 	nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>

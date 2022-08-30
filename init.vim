@@ -132,7 +132,8 @@ call plug#end()
 	nmap <leader>gk <plug>(signify-prev-hunk)
   nmap <leader>st :SignifyToggle<CR> 
 	nmap <leader>sh :SignifyToggleHighlight<CR>
-
+	"Git
+	nmap <leader>G <cmd>G<CR>
 	" LSP config 
 	nnoremap <silent> ty <cmd>tab split <CR>
 	nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -148,25 +149,12 @@ call plug#end()
 	nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 	nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-"no arrows
-    nnoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
-    nnoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
-    nnoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
-    nnoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
-    nnoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
-    nnoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
-    inoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <Left> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <Right> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <Up> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <Down> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <PageUp> <Esc>:echo 'you are weak'<CR>
-    vnoremap <buffer> <PageDown> <Esc>:echo 'you are weak'<CR>
+  map <Left> <Esc>:echo 'you are weak'<CR>
+  map <Right> <Esc>:echo 'you are weak'<CR>
+  map <Up> <Esc>:echo 'you are weak'<CR>
+  map <Down> <Esc>:echo 'you are weak'<CR>
+  map <PageUp> <Esc>:echo 'you are weak'<CR>
+  map <PageDown> <Esc>:echo 'you are weak'<CR>
 
 	" auto-format
 "	autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -278,6 +266,8 @@ EOF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Links
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	"vim tricks
+	"https://www.youtube.com/watch?v=vtFXMni91Q4
 	
 	"dart for vim plugin 
 	"https://github.com/akinsho/flutter-tools.nvim

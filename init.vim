@@ -39,16 +39,9 @@ call plug#begin()
 	Plug 'tpope/vim-rhubarb'
 	Plug 'junegunn/gv.vim'
 	" Theme
-	"Plug 'folke/tokyonight.nvim'
-	"Plug 'bluz71/vim-moonfly-colors'
-	Plug 'jacoborus/tender.vim'
-	Plug 'EdenEast/nightfox.nvim'
-	Plug 'bluz71/vim-nightfly-guicolors'
-	Plug 'cocopon/iceberg.vim'
-	Plug 'olimorris/onedarkpro.nvim'  
-	Plug 'marko-cerovac/material.nvim'
+	Plug 'folke/tokyonight.nvim'
 	"icons in your statusline choose one of these
-	Plug 'aktersnurra/no-clown-fiesta.nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -93,20 +86,10 @@ call plug#end()
 	let g:signify_disable_by_default = 1 
 	let g:signify_sign_show_count = 0
 	let g:signify_sign_show_text = 1
-	"let g:lightline = {'colorscheme': 'tokyonight'}
-	"let g:lightline = { 'colorscheme': 'moonfly' }
-	"let	g:tokyonight_style = "night"
-	"colorscheme tokyonight
-	"colorscheme moonfly
-	"colorscheme nightfox
-	"let g:lightline = { 'colorscheme': 'tender' }
-	"let g:airline_theme = 'tender'
-	"colorscheme tender
-"	colorscheme nightfly
-"let g:lightline = { 'colorscheme': 'nightfly' }
-	let g:material_style = "deep ocean"
-	colorscheme material
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	let g:lightline = {'colorscheme': 'tokyonight'}
+	let	g:tokyonight_style = "night"
+	colorscheme tokyonight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 	let mapleader=" "
@@ -332,5 +315,4 @@ cmp.setup {
 	require("telescope").load_extension "harpoon"
 	require("telescope").load_extension "file_browser"
 	require('lualine').setup()
---	require("no-clown-fiesta").setup({ type = "bold,italic" })
 EOF

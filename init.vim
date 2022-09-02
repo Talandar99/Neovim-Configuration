@@ -1,7 +1,11 @@
-"s""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+	"bottom bar
+	Plug 'nvim-lualine/lualine.nvim'
+	"Harpoon
+	Plug 'ThePrimeagen/harpoon'
 	"LSP language server 
 	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'neovim/nvim-lspconfig'
@@ -11,9 +15,11 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+	Plug 'Neevash/awesome-flutter-snippets'
 	" For vsnip users.
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
+	Plug 'hrsh7th/vim-vsnip-integ'
 	"Auto Pairs
 	Plug 'jiangmiao/auto-pairs'
 	"Rust 
@@ -27,38 +33,38 @@ call plug#begin()
 	Plug 'nvim-telescope/telescope-file-browser.nvim' "dont work yet ----
 	"lines movement
 	Plug 'fedepujol/move.nvim'
-	" Snippets
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
-	Plug 'natebosch/dartlang-snippets'
 	" Git
 	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
 	Plug 'junegunn/gv.vim'
 	" Theme
-	Plug 'folke/tokyonight.nvim'
+	"Plug 'folke/tokyonight.nvim'
+	"Plug 'bluz71/vim-moonfly-colors'
+	Plug 'jacoborus/tender.vim'
+	Plug 'EdenEast/nightfox.nvim'
+	Plug 'bluz71/vim-nightfly-guicolors'
+	Plug 'cocopon/iceberg.vim'
+	Plug 'olimorris/onedarkpro.nvim'  
+	Plug 'marko-cerovac/material.nvim'
 	"icons in your statusline choose one of these
-	Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'aktersnurra/no-clown-fiesta.nvim'
 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	let g:lightline = {'colorscheme': 'tokyonight'}
-	let	g:tokyonight_style = "night"
+	set relativenumber
 	set number
 	set termguicolors
+	set signcolumn=yes
 	syntax on
 	set t_Co=256
 	set cursorline
-	let g:airline_theme='onehalfdark'
-  	set splitbelow
+  set splitbelow
 	set encoding=UTF-8
-	" Don't add sounds for errors
 	set noerrorbells                                              	
-	set number
 	set nowrap
 	set nobackup
 	set nohlsearch
@@ -75,24 +81,31 @@ call plug#end()
 	set clipboard=unnamedplus
 	set backspace=indent,eol,start
 	set updatetime=300
-	set signcolumn=yes
-	"highlight ColorColumn ctermbg=0 guibg=lightgrey
+	"set signcolumn=yes
 	let g:rust_cargo_check_all_targets = 1
-	"autosave options
 	let g:rustfmt_autosave = 1
 	let g:dart_format_on_save = 1
 	let g:dartfmt_options = ['--fix', '--line-length 120']
-	" Change these if you want
 	let g:signify_sign_add               = '+'
 	let g:signify_sign_delete            = '_'
 	let g:signify_sign_delete_first_line = '‾'
 	let g:signify_sign_change            = '~'
 	let g:signify_disable_by_default = 1 
- 	" I find the numbers disctracting
 	let g:signify_sign_show_count = 0
 	let g:signify_sign_show_text = 1
-	 "highlight SignifySignChange ctermfg=black ctermbg=yellow guifg=#000000 guibg=#ffff00
-	colorscheme tokyonight
+	"let g:lightline = {'colorscheme': 'tokyonight'}
+	"let g:lightline = { 'colorscheme': 'moonfly' }
+	"let	g:tokyonight_style = "night"
+	"colorscheme tokyonight
+	"colorscheme moonfly
+	"colorscheme nightfox
+	"let g:lightline = { 'colorscheme': 'tender' }
+	"let g:airline_theme = 'tender'
+	"colorscheme tender
+"	colorscheme nightfly
+"let g:lightline = { 'colorscheme': 'nightfly' }
+	let g:material_style = "deep ocean"
+	colorscheme material
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,11 +121,25 @@ call plug#end()
 	nnoremap <leader>cr :Cargo run <CR>
 	"quit
 	nnoremap <leader>q :q <CR>
-	nnoremap <leader>wq :wq!<CR> 
-	nnoremap <leader>W :w!<CR> 
+	nnoremap <leader>wq :bufdo wq!<CR> 
+	nnoremap <leader>ww :w!<CR> 
+	nnoremap <leader>wa :wa!<CR>	
+	
 	"open telescope (close have same binding)
 	nnoremap <C-c> :Telescope find_files<CR>
+	nnoremap <C-s> :Telescope buffers<CR>
 	nnoremap <C-z> :Telescope file_browser<CR>
+	"Harpoon
+	nnoremap <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
+	nnoremap <leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
+	nnoremap <leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
+	nnoremap <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
+	nnoremap <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
+	nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
+	nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
+	nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
+	nnoremap <leader>w :lua require("harpoon.mark").add_file()<CR> 
+	nnoremap <leader>ee :lua require("harpoon.ui").toggle_quick_menu()<CR>
 	"split jumping
 	nnoremap <leader>h <C-w>h
 	nnoremap <leader>j <C-w>j
@@ -149,17 +176,16 @@ call plug#end()
 	nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 	nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
+	" Expand
+	imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+	smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
   map <Left> <Esc>:echo 'you are weak'<CR>
   map <Right> <Esc>:echo 'you are weak'<CR>
   map <Up> <Esc>:echo 'you are weak'<CR>
   map <Down> <Esc>:echo 'you are weak'<CR>
   map <PageUp> <Esc>:echo 'you are weak'<CR>
   map <PageDown> <Esc>:echo 'you are weak'<CR>
-
-	" auto-format
-"	autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-"	autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-"	autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Lua
@@ -177,8 +203,8 @@ lua <<EOF
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -220,9 +246,9 @@ lua <<EOF
   })
 
   -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require('rust-tools').setup{capabilities = capabilities}
 require("flutter-tools").setup {
   ui = {
     border = "rounded",
@@ -247,20 +273,28 @@ require("flutter-tools").setup {
     open_cmd = "30vnew", -- command to use to open the outline buffer
     auto_open = false -- if true this will open the outline automatically when it is first populated
   },
+  flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
+  fvm = false, -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
+  widget_guides = {
+    enabled = false,
+  },
   lsp = {
     color = { -- show the derived colours for dart variables
       enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
       background = false, -- highlight the background
       foreground = true, -- highlight the foreground
       virtual_text = true, -- show the highlight using virtual text
-      virtual_text_str = "■■■■", -- the virtual text character to highlight
+      virtual_text_str = "■■color■■", -- the virtual text character to highlight
     },
+		settings = {
+			showTodos = true,
+			completeFunctionCalls = true,
+			analysisExcludedFolders = {"<path-to-flutter-sdk-packages>"},
+			renameFilesWithClasses = "prompt", -- "always"
+			enableSnippets = true,
+		},
   }
 }
-
-	--require("flutter-tools").setup{} -- use defaults
-	--require('lspconfig').rust_analyzer.setup{capabilities = capabilities}
-	require('rust-tools').setup{capabilities = capabilities}
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -274,7 +308,6 @@ end
 local cmp = require('cmp')
 cmp.setup {
   mapping = {
-
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -296,18 +329,8 @@ cmp.setup {
     end, { "i", "s" }),
   }
 }
+	require("telescope").load_extension "harpoon"
 	require("telescope").load_extension "file_browser"
+	require('lualine').setup()
+--	require("no-clown-fiesta").setup({ type = "bold,italic" })
 EOF
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Links
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	"vim tricks
-	"https://www.youtube.com/watch?v=vtFXMni91Q4
-	
-	"dart for vim plugin 
-	"https://github.com/akinsho/flutter-tools.nvim
-	
-	"language server configurations
-	"https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#dartls
-

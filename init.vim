@@ -1,7 +1,10 @@
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+	"vim wiki
+	Plug 'vimwiki/vimwiki'
 	"bottom bar
 	Plug 'nvim-lualine/lualine.nvim'
 	"Harpoon
@@ -42,12 +45,15 @@ call plug#begin()
 	Plug 'folke/tokyonight.nvim'
 	"icons in your statusline choose one of these
 	Plug 'kyazdani42/nvim-web-devicons'
-
+	"dims innactive split
+	Plug 'sunjon/shade.nvim'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+	set completeopt=menu,menuone,noselect
 	set relativenumber
 	set number
 	set termguicolors
@@ -94,6 +100,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 	let mapleader=" "
 	"Flutter
+ 	nnoremap <leader>fd :FlutterDevices<CR>
  	nnoremap <leader>fe :FlutterEmulators<CR>
 	nnoremap <leader>fr :FlutterRun<CR>
 	nnoremap <leader>ft :FlutterOutlineToggle<CR>
@@ -105,7 +112,7 @@ call plug#end()
 	"quit
 	nnoremap <leader>q :q <CR>
 	nnoremap <leader>wq :bufdo wq!<CR> 
-	nnoremap <leader>ww :w!<CR> 
+	nnoremap <leader>wf :w!<CR> 
 	nnoremap <leader>wa :wa!<CR>	
 	
 	"open telescope (close have same binding)
@@ -144,6 +151,9 @@ call plug#end()
 	nmap <leader>sh :SignifyToggleHighlight<CR>
 	"Git
 	nmap gq <cmd>0G<CR>
+	nmap gpl :Git pull
+	nmap gps :Git push
+	nmap gfe :Git fetch
 	" LSP config 
 	nnoremap <silent> ty <cmd>tab split <CR>
 	nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -174,7 +184,7 @@ call plug#end()
 "Lua
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set completeopt=menu,menuone,noselect
+"set completeopt=menu,menuone,noselect
 lua require'lspconfig'.rust_analyzer.setup({})
 lua <<EOF
   -- Setup nvim-cmp.
@@ -200,7 +210,12 @@ lua <<EOF
       { name = 'nvim_lsp' },
       { name = 'vsnip' }, -- For vsnip users.
     }, {
-      { name = 'buffer' },
+      { name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      } },
     })
   })
   -- Set configuration for specific filetype.
@@ -315,4 +330,14 @@ cmp.setup {
 	require("telescope").load_extension "harpoon"
 	require("telescope").load_extension "file_browser"
 	require('lualine').setup()
+	
+	require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1,
+  keys = {
+    brightness_up    = '<C-Up>',
+    brightness_down  = '<C-Down>',
+    toggle           = '<Leader>s',
+  }
+})
 EOF

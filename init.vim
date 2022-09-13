@@ -3,6 +3,8 @@
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+	"Translation in fly
+	Plug 'potamides/pantran.nvim'	
 	"vim wiki
 	Plug 'vimwiki/vimwiki'
 	"bottom bar
@@ -43,10 +45,12 @@ call plug#begin()
 	Plug 'junegunn/gv.vim'
 	" Theme
 	Plug 'folke/tokyonight.nvim'
+	Plug 'Mofiqul/vscode.nvim'
 	"icons in your statusline choose one of these
 	Plug 'kyazdani42/nvim-web-devicons'
 	"dims innactive split
 	Plug 'sunjon/shade.nvim'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -76,7 +80,7 @@ call plug#end()
 	set tabstop=2
 	set softtabstop=0 noexpandtab
 	set shiftwidth=2
-	set colorcolumn=120
+	"set colorcolumn=120
 	set clipboard=unnamedplus
 	set backspace=indent,eol,start
 	set updatetime=300
@@ -114,7 +118,12 @@ call plug#end()
 	nnoremap <leader>wq :bufdo wq!<CR> 
 	nnoremap <leader>wf :w!<CR> 
 	nnoremap <leader>wa :wa!<CR>	
-	
+
+	"paste and don't save previous option
+	xnoremap <leader>p "_d1hp
+  "Trigger Translation
+	nnoremap <Leader>tr <cmd>Pantran engine=google<CR> 
+  
 	"open telescope (close have same binding)
 	nnoremap <C-c> :Telescope find_files<CR>
 	nnoremap <C-s> :Telescope buffers<CR>

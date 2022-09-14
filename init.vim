@@ -2,6 +2,7 @@
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+	
 "Translation in fly
 	Plug 'potamides/pantran.nvim'	
 "vim wiki
@@ -42,6 +43,8 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
 	Plug 'junegunn/gv.vim'
+"Branch management	
+	Plug 'idanarye/vim-merginal'
 " Theme
 	Plug 'folke/tokyonight.nvim'
 	Plug 'Mofiqul/vscode.nvim'
@@ -121,7 +124,7 @@ nnoremap <leader>cr :Cargo run <CR>
 nnoremap <leader>q :q <CR>
 nnoremap <leader>wq :bufdo wq!<CR> 
 nnoremap <leader>wf :w!<CR> 
-nnoremap <leader>wa :wa!<CR>	
+nnoremap <leader>aa :wa!<CR>	
 
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
@@ -173,7 +176,7 @@ nmap gq <cmd>0G<CR>
 nmap gpl :Git pull
 nmap gps :Git push
 nmap gfe :Git fetch
-
+nmap <leader>tt :MerginalToggle<CR>
 " LSP config 
 nnoremap <silent> ty <cmd>tab split <CR>
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>

@@ -213,7 +213,26 @@ lua <<EOF
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
-require'lspconfig'.rust_analyzer.setup({})
+require('lspconfig').rust_analyzer.setup({
+on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }})
 require('fluttertoolssetup') -- local
 require('shadesetup') --local
 require("telescope").load_extension "harpoon"

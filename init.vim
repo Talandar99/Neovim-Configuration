@@ -27,8 +27,9 @@ call plug#begin()
 	Plug 'hrsh7th/vim-vsnip-integ'
 "Auto Pairs
 	Plug 'jiangmiao/auto-pairs'
-"Rust 
+"Rust
 	Plug 'simrat39/rust-tools.nvim'
+	Plug 'rust-lang/rust.vim'
 "Dart
 	Plug 'dart-lang/dart-vim-plugin'
 	Plug 'akinsho/flutter-tools.nvim'
@@ -209,10 +210,10 @@ map <PageDown> <Esc>:echo 'you are weak'<CR>
 "Lua
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
-
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
+require'lspconfig'.rust_analyzer.setup({})
 require('fluttertoolssetup') -- local
 require('shadesetup') --local
 require("telescope").load_extension "harpoon"

@@ -150,6 +150,9 @@ nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
 nnoremap <leader>w :lua require("harpoon.mark").add_file()<CR> 
 nnoremap <leader>ee :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
+"create split
+nnoremap <leader>sv <cmd>vsplit<>
+
 "split jumping
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
@@ -177,6 +180,7 @@ nmap gq <cmd>0G<CR>
 nmap gpl :Git pull
 nmap gps :Git push
 nmap gfe :Git fetch
+nmap grh :Git reset --hard
 nmap <leader>tt :MerginalToggle<CR>
 " LSP config 
 nnoremap <silent> ty <cmd>tab split <CR>

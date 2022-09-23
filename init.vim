@@ -2,6 +2,8 @@
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+"Discord pressence
+	Plug 'andweeb/presence.nvim'
 "Translation in fly
 	Plug 'potamides/pantran.nvim'	
 "vim wiki
@@ -105,6 +107,9 @@ colorscheme tokyonight
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
+
+"Format json
+nnoremap <leader>js <cmd>%!python -m json.tool<CR>
 
 "Flutter
 nnoremap <leader>fd :FlutterDevices<CR>

@@ -179,11 +179,13 @@ nmap <leader>sh :SignifyToggleHighlight<CR>
 
 "Git
 nmap gq <cmd>0G<CR>
-nnoremap gps :Git push
+nmap gps :Git push
 nmap gpl :Git pull
 nmap gfc :Git fetch
 nmap grh :Git reset --hard
+nmap gbl :Git blame<CR>
 nmap <leader>tt :MerginalToggle<CR>
+
 " LSP config 
 nnoremap <silent> ty <cmd>tab split <CR>
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>

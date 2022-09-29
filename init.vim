@@ -114,14 +114,16 @@ nnoremap <leader>js <cmd>%!python -m json.tool<CR>
 "Flutter
 nnoremap <leader>fd :FlutterDevices<CR>
 nnoremap <leader>fe :FlutterEmulators<CR>
+nnoremap <leader>ft :FlutterToolsOpen<CR>
 nnoremap <leader>fr :FlutterRun<CR>
-nnoremap <leader>ft :FlutterOutlineToggle<CR>
 nnoremap <leader>fq :FlutterQuit<CR>
 
 "Rust
-nnoremap <leader>cb :Cargo build <CR>
+nnoremap <leader>cz :Cargo update <CR>
+nnoremap <leader>cx :Cargo build <CR>
 nnoremap <leader>cc :Cargo check <CR>
-nnoremap <leader>cr :Cargo run <CR>
+nnoremap <leader>cv :Cargo run <CR>
+nnoremap <leader>cd :Cargo doc --open<CR>
 
 "quit
 nnoremap <leader>q :q <CR>
@@ -149,11 +151,12 @@ nnoremap <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
 nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
 nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
 nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
-nnoremap <leader>w :lua require("harpoon.mark").add_file()<CR> 
+nnoremap <leader>we :lua require("harpoon.mark").add_file()<CR> 
 nnoremap <leader>ee :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 "create split
 nnoremap <leader>sv <cmd>vsplit<>
+nnoremap <silent> ty <cmd>tab split <CR>
 
 "split jumping
 nnoremap <leader>h <C-w>h
@@ -187,7 +190,6 @@ nmap gbl :Git blame<CR>
 nmap <leader>tt :MerginalToggle<CR>
 
 " LSP config 
-nnoremap <silent> ty <cmd>tab split <CR>
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>

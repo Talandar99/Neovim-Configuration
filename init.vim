@@ -55,7 +55,6 @@ call plug#begin()
 "dims innactive split
 	Plug 'sunjon/shade.nvim'
 
-
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

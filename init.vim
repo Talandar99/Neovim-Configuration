@@ -55,6 +55,7 @@ call plug#begin()
 "dims innactive split
 	Plug 'sunjon/shade.nvim'
 
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,8 +101,7 @@ let g:signify_disable_by_default = 1
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 let g:lightline = {'colorscheme': 'tokyonight'}
-let	g:tokyonight_style = "night"
-colorscheme tokyonight
+colorscheme tokyonight-night
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
@@ -135,8 +135,9 @@ nnoremap <leader>aa :wa!<CR>
 xnoremap <leader>p "_d1hp
 
 "Trigger Translation
-nnoremap <Leader>tr <cmd>Pantran engine=google<CR> 
-  
+nnoremap <Leader>tre <cmd>Pantran source=pl engine=google<CR> 
+nnoremap <Leader>trd <cmd>Pantran source=en target=pl engine=google<CR> 
+"
 "open telescope (close have same binding)
 nnoremap <C-c> :Telescope find_files<CR>
 nnoremap <C-s> :Telescope buffers<CR>

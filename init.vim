@@ -34,6 +34,8 @@ call plug#begin()
 "Dart
 	Plug 'dart-lang/dart-vim-plugin'
 	Plug 'akinsho/flutter-tools.nvim'
+"Java
+	Plug 'mfussenegger/nvim-jdtls'
 "telescope
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -223,7 +225,7 @@ lua <<EOF
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
-require('lspconfig').html.setup{}
+require'lspconfig'.jdtls.setup{ cmd = { 'jdtls' } }
 require('lspconfig').rust_analyzer.setup({
 on_attach=on_attach,
     settings = {

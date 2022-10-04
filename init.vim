@@ -26,8 +26,11 @@ call plug#begin()
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
 	Plug 'hrsh7th/vim-vsnip-integ'
-"Auto Pairs
-	Plug 'jiangmiao/auto-pairs'
+" Git
+	Plug 'mhinz/vim-signify'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rhubarb'
+	Plug 'junegunn/gv.vim'
 "Rust
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'rust-lang/rust.vim'
@@ -36,17 +39,16 @@ call plug#begin()
 	Plug 'akinsho/flutter-tools.nvim'
 "Java
 	Plug 'mfussenegger/nvim-jdtls'
+"surround 
+	Plug 'tpope/vim-surround'	
+"Auto Pairs
+	Plug 'jiangmiao/auto-pairs'
 "telescope
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 	Plug 'nvim-telescope/telescope-file-browser.nvim' "dont work yet ----
 "lines movement
 	Plug 'fedepujol/move.nvim'
-" Git
-	Plug 'mhinz/vim-signify'
-	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-rhubarb'
-	Plug 'junegunn/gv.vim'
 "Branch management	
 	Plug 'idanarye/vim-merginal'
 " Theme

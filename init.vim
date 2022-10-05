@@ -186,6 +186,7 @@ nmap <leader>sh :SignifyToggleHighlight<CR>
 
 "Git
 nmap gq <cmd>0G<CR>
+nmap gds :Gvdiffsplit!<CR>
 nmap gps :Git push
 nmap gpl :Git pull
 nmap gfc :Git fetch

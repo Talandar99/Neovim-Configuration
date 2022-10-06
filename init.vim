@@ -22,11 +22,11 @@ call plug#begin()
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 	Plug 'Neevash/awesome-flutter-snippets'
-" For vsnip users.
+"For vsnip users.
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
 	Plug 'hrsh7th/vim-vsnip-integ'
-" Git
+"Git
 	Plug 'mhinz/vim-signify'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
@@ -117,16 +117,16 @@ nnoremap <leader>js <cmd>%!python -m json.tool<CR>
 "Flutter
 nnoremap <leader>fd :FlutterDevices<CR>
 nnoremap <leader>fe :FlutterEmulators<CR>
-nnoremap <leader>ft :FlutterToolsOpen<CR>
+nnoremap <leader>fto :FlutterToolsOpen<CR>
 nnoremap <leader>fr :FlutterRun<CR>
 nnoremap <leader>fq :FlutterQuit<CR>
 
 "Rust
-nnoremap <leader>cz :Cargo update <CR>
 nnoremap <leader>cx :Cargo build <CR>
 nnoremap <leader>cc :Cargo check <CR>
-nnoremap <leader>cv :Cargo run <CR>
 nnoremap <leader>cd :Cargo doc --open<CR>
+nnoremap <leader>cu :Cargo update <CR>
+nnoremap <leader>cv :Cargo run <CR>
 
 "quit
 nnoremap <leader>q :q <CR>
@@ -140,7 +140,7 @@ xnoremap <leader>p "_d1hp
 "Trigger Translation
 nnoremap <Leader>tre <cmd>Pantran source=pl engine=google<CR> 
 nnoremap <Leader>trd <cmd>Pantran source=en target=pl engine=google<CR> 
-"
+
 "open telescope (close have same binding)
 nnoremap <C-c> :Telescope find_files<CR>
 nnoremap <C-s> :Telescope buffers<CR>
@@ -178,13 +178,13 @@ nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
 vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
 vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
 
-" Jump though hunks
+"Jump though hunks
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 nmap <leader>st :SignifyToggle<CR> 
 nmap <leader>sh :SignifyToggleHighlight<CR>
 
-"Git
+"Git fugitive
 nmap gq <cmd>0G<CR>
 nmap gds :Gvdiffsplit!<CR>
 nmap gps :Git push
@@ -192,9 +192,11 @@ nmap gpl :Git pull
 nmap gfc :Git fetch
 nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
+
+"Git Merginal
 nmap <leader>tt :MerginalToggle<CR>
 
-" LSP config 
+"LSP config 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
@@ -202,18 +204,18 @@ nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
-" Open code actions for the selected visual range
+"Open code actions for the selected visual range
 nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
 xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-" Expand
+"Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
-" Dont use arrows
+"Dont use arrows
 map <Left> <Esc>:echo 'you are weak'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'you are weak'<CR>
@@ -222,33 +224,14 @@ map <PageUp> <Esc>:echo 'you are weak'<CR>
 map <PageDown> <Esc>:echo 'you are weak'<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Lua
+"Lua dependency files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
-require'lspconfig'.jdtls.setup{ cmd = { 'jdtls' } }
-require('lspconfig').rust_analyzer.setup({
-on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }})
+require('lspconfig').jdtls.setup{ cmd = { 'jdtls' } }
+require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
 require('shadesetup') --local
 require("telescope").load_extension "harpoon"

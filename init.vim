@@ -230,7 +230,8 @@ lua <<EOF
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
-require('lspconfig').jdtls.setup{ cmd = { 'jdtls' } }
+require'lspconfig'.jdtls.setup{}
+--require('lspconfig').jdtls.setup{ cmd = { 'jdtls' } }
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
 require('shadesetup') --local

@@ -82,7 +82,7 @@ set nohlsearch
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/AppData/Local/nvim-data/backup
+set undodir=~/nvim-data/backup
 set undofile
 set incsearch
 set tabstop=2
@@ -92,6 +92,7 @@ set shiftwidth=2
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set updatetime=300
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:rust_cargo_check_all_targets = 1
 let g:rustfmt_autosave = 1
 let g:dart_format_on_save = 1

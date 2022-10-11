@@ -1,4 +1,7 @@
 # My personal neovim configuration
-- Dart/Rust development
 - Vim wiki for notes
 - Build in translator
+- Configured LSP for:
+  - Rust
+  - Flutter/dart
+  - Java

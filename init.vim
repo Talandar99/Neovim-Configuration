@@ -103,6 +103,7 @@ let g:signify_sign_change            = '~'
 let g:signify_disable_by_default = 1 
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
+let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 let g:lightline = {'colorscheme': 'tokyonight'}
 colorscheme tokyonight-night
 

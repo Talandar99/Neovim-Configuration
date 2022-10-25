@@ -1,4 +1,4 @@
-# My personal neovim configuration
+# My neovim configuration
 - Vim wiki for notes
 - Build in translator
 - Configured LSP for:

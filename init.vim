@@ -2,6 +2,8 @@
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+"Colors highlight 
+	Plug 'chrisbra/Colorizer'
 "Discord pressence
 	Plug 'andweeb/presence.nvim'
 "Translation in fly
@@ -112,6 +114,12 @@ colorscheme tokyonight-night
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 
+"Colorizer toggle
+nnoremap <leader>ct <cmd>ColorToggle<CR>
+
+"Git Merginal
+nmap <leader>tt :MerginalToggle<CR>
+
 "Format json
 nnoremap <leader>js <cmd>%!python -m json.tool<CR>
 
@@ -194,8 +202,6 @@ nmap gfc :Git fetch
 nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
-"Git Merginal
-nmap <leader>tt :MerginalToggle<CR>
 
 "LSP config 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -229,16 +235,7 @@ map <PageDown> <Esc>:echo 'you are weak'<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("nvim-lsp-installer").setup({
-    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-})
+require('nvimlspinstaller') --local
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
 require('rustanalyzersetup') -- local

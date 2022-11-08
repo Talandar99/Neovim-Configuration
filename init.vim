@@ -15,7 +15,6 @@ call plug#begin()
 "Harpoon
 	Plug 'ThePrimeagen/harpoon'
 "LSP language server 
-	Plug 'williamboman/nvim-lsp-installer'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
@@ -235,7 +234,6 @@ map <PageDown> <Esc>:echo 'you are weak'<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('nvimlspinstaller') --local
 require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
 require('rustanalyzersetup') -- local

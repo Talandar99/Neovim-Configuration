@@ -60,7 +60,6 @@ call plug#begin()
 "icons in your statusline choose one of these
 	Plug 'kyazdani42/nvim-web-devicons'
 "dims innactive split
-	Plug 'sunjon/shade.nvim'
 
 call plug#end()
 
@@ -71,7 +70,6 @@ call plug#end()
 set completeopt=menu,menuone,noselect
 set relativenumber
 set number
-set termguicolors
 set signcolumn=yes
 syntax on
 set t_Co=256
@@ -85,7 +83,7 @@ set nohlsearch
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/nvim-data/backup
+set undodir=~/.nvim-data/backup
 set undofile
 set incsearch
 set tabstop=2
@@ -95,6 +93,7 @@ set shiftwidth=2
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set updatetime=300
+set termguicolors
 let g:rust_cargo_check_all_targets = 1
 let g:rustfmt_autosave = 1
 let g:dart_format_on_save = 1
@@ -108,7 +107,6 @@ let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 let g:vimwiki_list = [{'path': '~/vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 let g:lightline = {'colorscheme': 'tokyonight'}
-colorscheme tokyonight-night
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
@@ -230,7 +228,6 @@ map <Up> <Esc>:echo 'you are weak'<CR>
 map <Down> <Esc>:echo 'you are weak'<CR>
 map <PageUp> <Esc>:echo 'you are weak'<CR>
 map <PageDown> <Esc>:echo 'you are weak'<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Lua dependency files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,9 +237,31 @@ require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
-require('shadesetup') --local
 require("telescope").load_extension "harpoon"
 require("telescope").load_extension "file_browser"
 require('lualine').setup()
 require('lspconfig').bashls.setup{}
+require("tokyonight").setup({
+  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  light_style = "day", -- The theme is used when the background is set to light
+  transparent = true, -- Enable this to disable setting the background color
+  transparent_sidebar = true,
+	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  styles = {
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+		sidebars = "transparent", 
+		floats = "transparent",
+  },
+  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+  on_colors = function(colors) end,
+  on_highlights = function(highlights, colors) end,
+})
 EOF
+colorscheme tokyonight

@@ -32,6 +32,8 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
 	Plug 'junegunn/gv.vim'
+"Bash 
+	Plug 'bash-lsp/bash-language-server'
 "Rust
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'rust-lang/rust.vim'
@@ -242,4 +244,5 @@ require('shadesetup') --local
 require("telescope").load_extension "harpoon"
 require("telescope").load_extension "file_browser"
 require('lualine').setup()
+require('lspconfig').bashls.setup{}
 EOF

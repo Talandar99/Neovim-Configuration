@@ -8,6 +8,8 @@ call plug#begin()
 	Plug 'andweeb/presence.nvim'
 "Translation in fly
 	Plug 'potamides/pantran.nvim'	
+"startup
+	Plug 'startup-nvim/startup.nvim'
 "vim wiki
 	Plug 'vimwiki/vimwiki'
 "bottom bar
@@ -243,7 +245,6 @@ require('lualine').setup()
 require('lspconfig').bashls.setup{}
 require("tokyonight").setup({
   style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  light_style = "day", -- The theme is used when the background is set to light
   transparent = true, -- Enable this to disable setting the background color
   transparent_sidebar = true,
 	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
@@ -263,5 +264,6 @@ require("tokyonight").setup({
   on_colors = function(colors) end,
   on_highlights = function(highlights, colors) end,
 })
+require("startup").setup({theme = "talandar"}) -- put theme name here
 EOF
 colorscheme tokyonight

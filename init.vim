@@ -266,8 +266,6 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 require('lspconfig').phpactor.setup{}
-require('lspconfig').cssls.setup{}
-require('lspconfig').html.setup{}
 require('lspconfig').intelephense.setup({
     settings = {
         intelephense = {

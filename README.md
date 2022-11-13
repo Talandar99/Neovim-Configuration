@@ -13,7 +13,8 @@
   - Rust
   - Flutter/dart
   - Java
-	- Bash
+  - Bash
+  - PHP
 - TokioNight (theme)
 ## How to install/copy configuration
 - install rust-analyzer

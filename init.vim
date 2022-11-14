@@ -1,4 +1,3 @@
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -114,13 +113,20 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"leader 
 let mapleader=" "
 
-"Colorizer toggle
-nnoremap <leader>ct <cmd>ColorToggle<CR>
-
+"-- TOGGLE --
+"colorizer
+nnoremap <leader>tc <cmd>ColorToggle<CR>
+"signify
+nmap <leader>ts :SignifyToggle<CR> 
+nmap <leader>th :SignifyToggleHighlight<CR>
 "Git Merginal
-nmap <leader>tt :MerginalToggle<CR>
+nmap <leader>tm :MerginalToggle<CR>
+"harpoon
+nnoremap <leader>te :lua require("harpoon.ui").toggle_quick_menu()<CR>
+"-- TOGGLE --
 
 "Format json
 nnoremap <leader>js <cmd>%!python -m json.tool<CR>
@@ -149,8 +155,8 @@ nnoremap <leader>aa :wa!<CR>
 xnoremap <leader>p "_d1hp
 
 "Trigger Translation
-nnoremap <Leader>tre <cmd>Pantran source=pl engine=google<CR> 
-nnoremap <Leader>trd <cmd>Pantran source=en target=pl engine=google<CR> 
+nnoremap <Leader>re <cmd>Pantran source=pl engine=google<CR> 
+nnoremap <Leader>rd <cmd>Pantran source=en target=pl engine=google<CR> 
 
 "open telescope (close have same binding)
 nnoremap <C-c> :Telescope find_files<CR>
@@ -167,7 +173,6 @@ nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
 nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
 nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
 nnoremap <leader>we :lua require("harpoon.mark").add_file()<CR> 
-nnoremap <leader>ee :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 "create split
 nnoremap <leader>sv <cmd>vsplit<>
@@ -192,8 +197,6 @@ vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
 "Jump though hunks
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
-nmap <leader>st :SignifyToggle<CR> 
-nmap <leader>sh :SignifyToggleHighlight<CR>
 
 "Git fugitive
 nmap gq <cmd>0G<CR>
@@ -210,7 +213,7 @@ nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
 "Open code actions for the selected visual range
@@ -225,75 +228,25 @@ imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
 "Dont use arrows
-map <Left> <Esc>:echo 'you are weak'<CR>
+map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
-map <Up> <Esc>:echo 'you are weak'<CR>
-map <Down> <Esc>:echo 'you are weak'<CR>
-map <PageUp> <Esc>:echo 'you are weak'<CR>
-map <PageDown> <Esc>:echo 'you are weak'<CR>
+map <Up> <Esc>:echo 'never slow down'<CR>
+map <Down> <Esc>:echo 'you don't need arrows<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Lua dependency files
+"Lua files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('cmpsetup') -- local
 require('rust-tools').setup{capabilities = capabilities}
-require('rustanalyzersetup') -- local
-require('fluttertoolssetup') -- local
-require("telescope").load_extension "harpoon"
 require("telescope").load_extension "file_browser"
+require("telescope").load_extension "harpoon"
 require('lualine').setup()
-require('lspconfig').bashls.setup{}
-require("tokyonight").setup({
-  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  transparent = true, -- Enable this to disable setting the background color
-  transparent_sidebar = true,
-	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-  styles = {
-    comments = { italic = true },
-    keywords = { italic = true },
-    functions = {},
-    variables = {},
-		sidebars = "transparent", 
-		floats = "transparent",
-  },
-  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false, -- dims inactive windows
-  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-  on_colors = function(colors) end,
-  on_highlights = function(highlights, colors) end,
-})
-require('lspconfig').phpactor.setup{}
-require('lspconfig').intelephense.setup({
-    settings = {
-        intelephense = {
-            stubs = { 
-                "bcmath",
-                "bz2",
-                "calendar",
-                "Core",
-                "curl",
-                "zip",
-                "zlib",
-                "wordpress",
-                "woocommerce",
-                "acf-pro",
-                "wordpress-globals",
-                "wp-cli",
-                "genesis",
-                "polylang"
-            },
-            environment = {
-              includePaths = '/home/your-user/.composer/vendor/php-stubs/' -- this line forces the composer path for the stubs in case inteliphense don't find it...
-            },
-            files = {
-                maxSize = 5000000;
-            };
-        };
-    }
-});
 require("startup").setup({theme = "talandar"}) -- put theme name here
+require('lspconfig').bashls.setup{}
+require('fluttertoolssetup') -- local
+require('rustanalyzersetup') -- local
+require('tokyonightsetup') -- local
+require('php_setup') -- local
+require('cmpsetup') -- local
 EOF
 colorscheme tokyonight

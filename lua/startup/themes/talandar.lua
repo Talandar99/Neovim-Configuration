@@ -20,7 +20,7 @@ local settings = {
     [[     ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ]],
     [[      ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ]],
 		[[]],
-	[[“I never learned from a man who agreed with me.” — Robert A. Heinlein]],
+	[[“Simplicity is the soul of efficiency.” – Austin Freeman]],
 	[[]],
 	},
         highlight = "Number",
@@ -66,7 +66,7 @@ local settings = {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = false,
-        paddings = { 3, 0, 0},
+        paddings = { 2, 0, 0},
     },
     mappings = {
         execute_command = "<CR>",

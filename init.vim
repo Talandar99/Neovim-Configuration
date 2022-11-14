@@ -232,6 +232,7 @@ map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
 map <Down> <Esc>:echo 'you don't need arrows<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Lua files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""

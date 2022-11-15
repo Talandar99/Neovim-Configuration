@@ -15,6 +15,7 @@
   - Java
   - Bash
   - PHP
+	- Elixir 
 - TokioNight (theme)
 ## How to install/copy configuration
 - install rust-analyzer

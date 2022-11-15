@@ -16,15 +16,6 @@ call plug#begin()
 	Plug 'nvim-lualine/lualine.nvim'
 "Harpoon
 	Plug 'ThePrimeagen/harpoon'
-"LSP language server 
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/cmp-nvim-lsp'
-	Plug 'hrsh7th/cmp-buffer'
-	Plug 'hrsh7th/cmp-path'
-	Plug 'hrsh7th/cmp-cmdline'
-	Plug 'hrsh7th/nvim-cmp'
-	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-	Plug 'Neevash/awesome-flutter-snippets'
 "For vsnip users.
 	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/vim-vsnip'
@@ -34,14 +25,26 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-rhubarb'
 	Plug 'junegunn/gv.vim'
+"LSP language server 
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/cmp-cmdline'
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+	Plug 'Neevash/awesome-flutter-snippets'
 "Bash 
 	Plug 'bash-lsp/bash-language-server'
-"Rust
-	Plug 'simrat39/rust-tools.nvim'
-	Plug 'rust-lang/rust.vim'
 "Dart
 	Plug 'dart-lang/dart-vim-plugin'
 	Plug 'akinsho/flutter-tools.nvim'
+"Elixir
+	Plug 'elixir-editors/vim-elixir'
+	Plug 'elixir-lsp/elixir-ls'
+"Rust
+	Plug 'simrat39/rust-tools.nvim'
+	Plug 'rust-lang/rust.vim'
 "Java
 	Plug 'mfussenegger/nvim-jdtls'
 "surround 
@@ -56,12 +59,11 @@ call plug#begin()
 	Plug 'fedepujol/move.nvim'
 "Branch management	
 	Plug 'idanarye/vim-merginal'
-" Theme
+"Theme
 	Plug 'folke/tokyonight.nvim'
 	Plug 'Mofiqul/vscode.nvim'
 "icons in your statusline choose one of these
 	Plug 'kyazdani42/nvim-web-devicons'
-"dims innactive split
 
 call plug#end()
 
@@ -116,7 +118,7 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 "leader 
 let mapleader=" "
 
-"-- TOGGLE --
+"-- TOGGLES --
 "colorizer
 nnoremap <leader>tc <cmd>ColorToggle<CR>
 "signify
@@ -126,7 +128,10 @@ nmap <leader>th :SignifyToggleHighlight<CR>
 nmap <leader>tm :MerginalToggle<CR>
 "harpoon
 nnoremap <leader>te :lua require("harpoon.ui").toggle_quick_menu()<CR>
-"-- TOGGLE --
+"Trigger Translation
+nnoremap <Leader>tp <cmd>Pantran source=pl engine=google<CR> 
+nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR> 
+"-- TOGGLES --
 
 "Format json
 nnoremap <leader>js <cmd>%!python -m json.tool<CR>
@@ -154,9 +159,6 @@ nnoremap <leader>aa :wa!<CR>
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
 
-"Trigger Translation
-nnoremap <Leader>re <cmd>Pantran source=pl engine=google<CR> 
-nnoremap <Leader>rd <cmd>Pantran source=en target=pl engine=google<CR> 
 
 "open telescope (close have same binding)
 nnoremap <C-c> :Telescope find_files<CR>
@@ -244,6 +246,7 @@ require("telescope").load_extension "harpoon"
 require('lualine').setup()
 require("startup").setup({theme = "talandar"}) -- put theme name here
 require('lspconfig').bashls.setup{}
+require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to yout user name)
 require('fluttertoolssetup') -- local
 require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local

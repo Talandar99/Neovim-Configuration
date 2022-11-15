@@ -10,11 +10,11 @@
 - autopairs (automaticly creates "()" insted "(")
 - pantran (built in translator)
 - Configured LSP for:
-  - Rust
-  - Flutter/dart
-  - Java
-  - Bash
-  - PHP
+	- Rust
+	- Flutter/dart
+	- Java
+	- Bash
+	- PHP
 	- Elixir 
 - TokioNight (theme)
 ## How to install/copy configuration

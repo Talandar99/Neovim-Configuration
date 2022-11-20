@@ -127,6 +127,11 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 "leader 
 let mapleader=" "
 
+"work in progress <merge tool>
+"nmap gds :Gvdiffsplit!<CR>
+nnoremap <leader>ds :DiffviewOpen<CR>
+
+
 "-- TOGGLES --
 "colorizer
 nnoremap <leader>tc <cmd>ColorToggle<CR>
@@ -211,7 +216,6 @@ nmap <leader>gk <plug>(signify-prev-hunk)
 
 "Git fugitive
 nmap gq <cmd>0G<CR>
-nmap gds :Gvdiffsplit!<CR>
 nmap gps :Git push
 nmap gpl :Git pull
 nmap gfc :Git fetch

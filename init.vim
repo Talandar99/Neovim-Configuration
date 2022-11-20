@@ -246,7 +246,7 @@ require("telescope").load_extension "harpoon"
 require('lualine').setup()
 require("startup").setup({theme = "talandar"}) -- put theme name here
 require('lspconfig').bashls.setup{}
-require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to yout user name)
+require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to your user name)
 require('fluttertoolssetup') -- local
 require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local

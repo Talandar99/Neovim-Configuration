@@ -2,41 +2,56 @@
 "Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
+""""""""""""""""""""""""Utilities"""""""""""""""""""""""""
+"surround 
+	Plug 'tpope/vim-surround'	
+"Auto Pairs
+	Plug 'jiangmiao/auto-pairs'
+"lines movement
+	Plug 'fedepujol/move.nvim'
 "Colors highlight 
 	Plug 'chrisbra/Colorizer'
 "Discord pressence
 	Plug 'andweeb/presence.nvim'
 "Translation in fly
 	Plug 'potamides/pantran.nvim'	
-"startup
-	Plug 'startup-nvim/startup.nvim'
 "vim wiki
 	Plug 'vimwiki/vimwiki'
 "bottom bar
 	Plug 'nvim-lualine/lualine.nvim'
+
+""""""""""""""""""""""""""""Theme""""""""""""""""""""""""""""
+"tokyonight theme
+	Plug 'folke/tokyonight.nvim'
+"icons in your statusline
+	Plug 'kyazdani42/nvim-web-devicons'
+
+"""""""""""""""""""""""""Navigation"""""""""""""""""""""""""
+"telescope
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+	Plug 'nvim-telescope/telescope-file-browser.nvim' 
+"startup
+	Plug 'startup-nvim/startup.nvim'
 "Harpoon
 	Plug 'ThePrimeagen/harpoon'
-"For vsnip users.
-	Plug 'hrsh7th/cmp-vsnip'
-	Plug 'hrsh7th/vim-vsnip'
-	Plug 'hrsh7th/vim-vsnip-integ'
-"Git
-	Plug 'mhinz/vim-signify'
-	Plug 'tpope/vim-fugitive'
-	Plug 'tpope/vim-rhubarb'
-	Plug 'junegunn/gv.vim'
-"LSP language server 
+
+""""""""""""""""LSP and Language support"""""""""""""""""""""
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 	Plug 'hrsh7th/cmp-nvim-lsp'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/cmp-cmdline'
 	Plug 'hrsh7th/nvim-cmp'
-	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-	Plug 'Neevash/awesome-flutter-snippets'
+"vsnip
+	Plug 'hrsh7th/cmp-vsnip'
+	Plug 'hrsh7th/vim-vsnip'
+	Plug 'hrsh7th/vim-vsnip-integ'
 "Bash 
 	Plug 'bash-lsp/bash-language-server'
-"Dart
+"Dart/Flutter
+	Plug 'Neevash/awesome-flutter-snippets'
 	Plug 'dart-lang/dart-vim-plugin'
 	Plug 'akinsho/flutter-tools.nvim'
 "Elixir
@@ -47,23 +62,18 @@ call plug#begin()
 	Plug 'rust-lang/rust.vim'
 "Java
 	Plug 'mfussenegger/nvim-jdtls'
-"surround 
-	Plug 'tpope/vim-surround'	
-"Auto Pairs
-	Plug 'jiangmiao/auto-pairs'
-"telescope
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-	Plug 'nvim-telescope/telescope-file-browser.nvim' "dont work yet ----
-"lines movement
-	Plug 'fedepujol/move.nvim'
+
+"""""""""""""""""""""""""Git""""""""""""""""""""""""""""""""
+"Signify
+	Plug 'mhinz/vim-signify'
+"fugitive 
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rhubarb'
+	Plug 'junegunn/gv.vim'
 "Branch management	
 	Plug 'idanarye/vim-merginal'
-"Theme
-	Plug 'folke/tokyonight.nvim'
-	Plug 'Mofiqul/vscode.nvim'
-"icons in your statusline choose one of these
-	Plug 'kyazdani42/nvim-web-devicons'
+"Solving merge conflicts 
+	Plug 'sindrets/diffview.nvim'
 
 call plug#end()
 
@@ -93,7 +103,6 @@ set incsearch
 set tabstop=2
 set softtabstop=0 noexpandtab
 set shiftwidth=2
-"set colorcolumn=120
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set updatetime=300

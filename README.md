@@ -31,3 +31,4 @@
 - PHP Intelephense
 - rustup
 - flutter 
+- elixir

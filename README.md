@@ -16,6 +16,7 @@
 	- Bash
 	- PHP
 	- Elixir 
+	- html
 - TokioNight (theme)
 ## How to install/copy configuration
 - install rust-analyzer
@@ -32,3 +33,4 @@
 - rustup
 - flutter 
 - elixir
+- vscode-html-languageserver

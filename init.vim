@@ -120,6 +120,9 @@ let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 let g:vimwiki_list = [{'path': '~/.vimwiki/','syntax': 'markdown', 'ext': '.md'}]
 let g:lightline = {'colorscheme': 'tokyonight'}
+let g:LanguageClient_serverCommands = {
+    \ 'sh': ['bash-language-server', 'start']
+    \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
@@ -253,17 +256,18 @@ map <Down> <Esc>:echo 'you don't need arrows<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require('lualine').setup()
 require('rust-tools').setup{capabilities = capabilities}
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
-require('lualine').setup()
 require("startup").setup({theme = "talandar"}) -- put theme name here
 require('lspconfig').bashls.setup{}
+require('lspconfig').html.setup{capabilities = capabilities}
 require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to yout user name)
+require('php_setup') -- local
 require('fluttertoolssetup') -- local
 require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local
-require('php_setup') -- local
 require('cmpsetup') -- local
 EOF
 colorscheme tokyonight

@@ -8,6 +8,7 @@ local settings = {
         title = "Header",
         margin = 0,
         content = {
+		[[]],
     [[  ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ]],
     [[   ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ]],
     [[         ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ]],
@@ -20,7 +21,8 @@ local settings = {
     [[     ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ]],
     [[      ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ]],
 		[[]],
-	[[“Simplicity is the soul of efficiency.” – Austin Freeman]],
+	[["In real open source, you have the right to control your own destiny." ]],
+	[[                                                      -Linus Torvalds]],
 	[[]],
 	},
         highlight = "Number",
@@ -66,7 +68,7 @@ local settings = {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = false,
-        paddings = { 2, 0, 0},
+        paddings = { 5, 0, 0},
     },
     mappings = {
         execute_command = "<CR>",

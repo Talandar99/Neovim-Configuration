@@ -68,7 +68,7 @@ local settings = {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = false,
-        paddings = { 5, 0, 0},
+        paddings = { 3, 0, 0},
     },
     mappings = {
         execute_command = "<CR>",

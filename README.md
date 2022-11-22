@@ -26,3 +26,8 @@
 ## How to update 
 - go inside nvim folder 
 - open terminal or git bash and type ``git pull``
+## Dependancies for LSP
+- bash-language-server
+- PHP Intelephense
+- rustup
+- flutter 

@@ -55,6 +55,7 @@ call plug#begin()
 	Plug 'dart-lang/dart-vim-plugin'
 	Plug 'akinsho/flutter-tools.nvim'
 "Elixir
+	Plug 'mhinz/vim-mix-format'
 	Plug 'elixir-editors/vim-elixir'
 	Plug 'elixir-lsp/elixir-ls'
 "Rust
@@ -123,7 +124,8 @@ let g:lightline = {'colorscheme': 'tokyonight'}
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']
     \ }
-
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -264,8 +266,8 @@ require("startup").setup({theme = "talandar"}) -- put theme name here
 require('lspconfig').bashls.setup{}
 require('lspconfig').html.setup{capabilities = capabilities}
 require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to yout user name)
-require('php_setup') -- local
 require('fluttertoolssetup') -- local
+require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local
 require('cmpsetup') -- local

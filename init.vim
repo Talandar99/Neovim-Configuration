@@ -263,9 +263,11 @@ require('rust-tools').setup{capabilities = capabilities}
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require("startup").setup({theme = "talandar"}) -- put theme name here
-require('lspconfig').bashls.setup{}
+require('lspconfig').bashls.setup{capabilities=capabilities}
 require('lspconfig').html.setup{capabilities = capabilities}
-require('lspconfig').elixirls.setup{cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" };} -- (for elixir lsp to work properly change talandar to yout user name)
+require('lspconfig').elixirls.setup{
+	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" }, 
+	capabilities=capabilities, } -- (for elixir lsp to work properly change talandar to yout user name)
 require('fluttertoolssetup') -- local
 require('php_setup') -- local
 require('rustanalyzersetup') -- local

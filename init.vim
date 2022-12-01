@@ -275,3 +275,5 @@ require('tokyonightsetup') -- local
 require('cmpsetup') -- local
 EOF
 colorscheme tokyonight
+:hi LineNr guifg=#7aa2f7
+:hi CursorLineNr guifg= #ff9e64

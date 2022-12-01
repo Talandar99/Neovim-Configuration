@@ -126,6 +126,8 @@ let g:LanguageClient_serverCommands = {
     \ }
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Key mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -257,6 +259,7 @@ map <Down> <Esc>:echo 'you don't need arrows<CR>
 "Lua files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua <<EOF
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('lualine').setup()
 require('rust-tools').setup{capabilities = capabilities}
@@ -273,6 +276,7 @@ require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local
 require('cmpsetup') -- local
+require('lsp_floating_window_border') --local
 EOF
 colorscheme tokyonight
 :hi LineNr guifg=#9aa5ce

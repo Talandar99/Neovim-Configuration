@@ -138,7 +138,6 @@ let mapleader=" "
 "nmap gds :Gvdiffsplit!<CR>
 nnoremap <leader>ds :DiffviewOpen<CR>
 
-
 "-- TOGGLES --
 "colorizer
 nnoremap <leader>tc <cmd>ColorToggle<CR>
@@ -229,7 +228,6 @@ nmap gfc :Git fetch
 nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
-
 "LSP config 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
@@ -237,8 +235,6 @@ nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
-
-"Open code actions for the selected visual range
 nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
 xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
@@ -248,6 +244,10 @@ nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 "Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+"automaticly center after C-d C-u
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 "Dont use arrows
 map <Left> <Esc>:echo 'embrace vim'<CR>

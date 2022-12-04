@@ -37,6 +37,9 @@ call plug#begin()
 	Plug 'ThePrimeagen/harpoon'
 
 """"""""""""""""LSP and Language support"""""""""""""""""""""
+"treesitter
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Lsp
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 	Plug 'hrsh7th/cmp-nvim-lsp'
@@ -56,13 +59,13 @@ call plug#begin()
 	Plug 'akinsho/flutter-tools.nvim'
 "Elixir
 	Plug 'mhinz/vim-mix-format'
-	Plug 'elixir-editors/vim-elixir'
 	Plug 'elixir-lsp/elixir-ls'
 "Rust
 	Plug 'simrat39/rust-tools.nvim'
 	Plug 'rust-lang/rust.vim'
 "Java
 	Plug 'mfussenegger/nvim-jdtls'
+
 
 """""""""""""""""""""""""Git""""""""""""""""""""""""""""""""
 "Signify
@@ -277,6 +280,31 @@ require('rustanalyzersetup') -- local
 require('tokyonightsetup') -- local
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
+require('nvim-treesitter.configs').setup({
+    ensure_installed = "all",
+
+    highlight = {
+        enable = true,
+        custom_captures = {
+            -- ["<capture group>"] = "<highlight group>",
+            -- ["keyword"] = "TSString",
+        },
+    },
+
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+        },
+    },
+
+    indent = {
+        enable = true
+    },
+})
 EOF
 colorscheme tokyonight
 :hi LineNr guifg=#9aa5ce

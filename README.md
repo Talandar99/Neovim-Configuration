@@ -1,4 +1,5 @@
 # My neovim configuration
+- treesitter (syntax highlight)
 - colorizer (hash colors highlight)
 - pressence (discord presence)
 - Harpoon (navigation)

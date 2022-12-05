@@ -25,7 +25,7 @@ nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR>
 nnoremap <leader>js <cmd>%!python -m json.tool<CR>
 
 "Flutter
-nnoremap <leader>fd :FlutterDevices<CR>
+nnoremap <leader>fd :FlutterDevices<CR>w
 nnoremap <leader>fe :FlutterEmulators<CR>
 nnoremap <leader>fto :FlutterToolsOpen<CR>
 nnoremap <leader>fr :FlutterRun<CR>
@@ -74,6 +74,9 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
+"open native vim fileview
+nnoremap <leader>fw <cmd>:E<CR>
+
 "moving lines
 nnoremap <silent> <A-j> :MoveLine(1)<CR>
 nnoremap <silent> <A-k> :MoveLine(-1)<CR>
@@ -97,13 +100,11 @@ nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
 "LSP config 
-nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
-xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+"xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 "Lspsaga
-
+nnoremap <silent> [e <cmd> Lspsaga diagnostic_jump_prev<CR>
+nnoremap <silent> ]e <cmd> Lspsaga diagnostic_jump_next<CR>
+nnoremap <leader>ca <Cmd>Lspsaga code_action<CR>
 nnoremap <leader>rn <cmd> Lspsaga rename<CR>
 nnoremap <silent> K <cmd> Lspsaga hover_doc<CR>
 nnoremap <silent> gd <cmd> Lspsaga peek_definition<CR>

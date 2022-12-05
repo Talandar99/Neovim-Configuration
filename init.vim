@@ -273,8 +273,7 @@ require('lspconfig').bashls.setup{capabilities=capabilities}
 require('lspconfig').html.setup{capabilities = capabilities}
 require('lspconfig').elixirls.setup{
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" }, 
-	capabilities=capabilities,
-} -- (for elixir lsp to work properly change talandar to yout user name)
+	capabilities=capabilities,} -- (for elixir lsp to work properly change talandar to yout user name)
 require('fluttertoolssetup') -- local
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
@@ -282,7 +281,7 @@ require('tokyonightsetup') -- local
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
 require('treesitter_config') -- local
+vim.cmd 'colorscheme tokyonight'
+vim.cmd 'hi LineNr guifg=#9aa5ce'
+vim.cmd 'hi CursorLineNr guifg=#ff9e64'
 EOF
-colorscheme tokyonight
-:hi LineNr guifg=#9aa5ce
-:hi CursorLineNr guifg=#ff9e64

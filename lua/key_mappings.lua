@@ -97,20 +97,17 @@ nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
 "LSP config 
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
 xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 "Lspsaga
+
+nnoremap <leader>rn <cmd> Lspsaga rename<CR>
 nnoremap <silent> K <cmd> Lspsaga hover_doc<CR>
-nnoremap <silent> gh <cmd> Lspsaga lsp_finder<CR>
+nnoremap <silent> gd <cmd> Lspsaga peek_definition<CR>
+nnoremap <silent> gr <cmd> Lspsaga lsp_finder<CR>
 nnoremap <silent> <A-w> <cmd> Lspsaga open_floaterm<CR>
 tnoremap <silent> <A-w> <C-\><C-n><cmd>Lspsaga close_floaterm<CR>
 
@@ -126,5 +123,5 @@ nnoremap <C-u> <C-u>zz
 map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
-map <Down> <Esc>:echo 'you don't need arrows<CR>
+map <Down> <Esc>:echo 'you don't need this...'<CR>
 ]])

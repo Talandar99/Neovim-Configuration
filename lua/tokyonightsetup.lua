@@ -8,7 +8,7 @@ require("tokyonight").setup({
     keywords = { italic = true },
     functions = {},
     variables = {},
-		sidebars = "transparent", 
+		sidebars = "transparent",
 		floats = "transparent",
   },
   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`

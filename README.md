@@ -18,7 +18,8 @@
 	- PHP
 	- Elixir 
 	- html
-- TokioNight (theme)
+	- lua
+- Modified TokioNight storm (theme)
 ## How to install/copy configuration
 - install rust-analyzer
 - find ``nvim`` folder
@@ -35,3 +36,4 @@
 - flutter 
 - elixir
 - vscode-html-languageserver
+- lua-language-server

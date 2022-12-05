@@ -15,7 +15,7 @@ nmap <leader>th :SignifyToggleHighlight<CR>
 "Git Merginal
 nmap <leader>tm :MerginalToggle<CR>
 "harpoon
-nnoremap <leader>te :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <A-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 "Trigger Translation
 nnoremap <Leader>tp <cmd>Pantran source=pl engine=google<CR> 
 nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR> 
@@ -101,13 +101,18 @@ nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
+"nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ca <Cmd>lua vim.lsp.buf.code_action()<CR>
 xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+"Lspsaga
+nnoremap <silent> K <cmd> Lspsaga hover_doc<CR>
+nnoremap <silent> gh <cmd> Lspsaga lsp_finder<CR>
+nnoremap <silent> <A-w> <cmd> Lspsaga open_floaterm<CR>
+tnoremap <silent> <A-w> <C-\><C-n><cmd>Lspsaga close_floaterm<CR>
 
 "Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'

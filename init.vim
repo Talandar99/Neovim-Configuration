@@ -281,7 +281,4 @@ require('tokyonightsetup') -- local
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
 require('treesitter_config') -- local
-vim.cmd 'colorscheme tokyonight'
-vim.cmd 'hi LineNr guifg=#9aa5ce'
-vim.cmd 'hi CursorLineNr guifg=#ff9e64'
 EOF

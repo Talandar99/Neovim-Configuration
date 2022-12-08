@@ -2,7 +2,6 @@ vim.cmd([[
 "leader 
 let mapleader=" "
 
-"work in progress <merge tool>
 "nmap gds :Gvdiffsplit!<CR>
 nnoremap <leader>ds :DiffviewOpen<CR>
 
@@ -100,7 +99,6 @@ nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
 "LSP config 
-"xnoremap <leader>ca <Cmd>lua vim.lsp.buf.range_code_action()<CR>
 "Lspsaga
 nnoremap <silent> [e <cmd> Lspsaga diagnostic_jump_prev<CR>
 nnoremap <silent> ]e <cmd> Lspsaga diagnostic_jump_next<CR>

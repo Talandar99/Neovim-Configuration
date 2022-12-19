@@ -47,6 +47,10 @@ require('packer').startup(function(use)
 	use 'sindrets/diffview.nvim'--Solving merge conflicts 
 	use 'glepnir/lspsaga.nvim'--lsp saga
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
 	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }-- Telescope
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
   	use {'nvim-treesitter/nvim-treesitter',run = function()  -- Highlight, edit, and navigate code

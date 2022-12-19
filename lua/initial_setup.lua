@@ -21,9 +21,9 @@ set nobackup
 set undodir=~/.nvim-data/backup
 set undofile
 set incsearch
-set tabstop=4
 set softtabstop=0 noexpandtab
-set shiftwidth=4
+set tabstop=6
+set shiftwidth=6
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 set updatetime=50

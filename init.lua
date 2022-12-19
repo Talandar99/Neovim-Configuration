@@ -97,25 +97,7 @@ require('lspconfig').html.setup{capabilities = capabilities}
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
-require('lspconfig').sumneko_lua.setup {
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			},
-			diagnostics = {
-				globals = {'vim'},
-			},
-			workspace = {
-				checkThirdParty = false,
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-}
+require('lua_setup') -- local
 require('lspconfig').elixirls.setup{
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },
 	capabilities=capabilities,} -- (for elixir lsp to work properly change talandar to yout user name)

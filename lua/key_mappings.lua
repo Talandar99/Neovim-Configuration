@@ -1,3 +1,6 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+vim.keymap.set('n', '<leader>E', vim.cmd.Ex , { desc = 'native filesearch' })
 vim.cmd([[
 "leader 
 let mapleader=" "
@@ -98,18 +101,6 @@ nmap gfc :Git fetch
 nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 
-"LSP config 
-"Lspsaga
-nnoremap <silent> [e <cmd> Lspsaga diagnostic_jump_prev<CR>
-nnoremap <silent> ]e <cmd> Lspsaga diagnostic_jump_next<CR>
-nnoremap <leader>ca <Cmd>Lspsaga code_action<CR>
-nnoremap <leader>rn <cmd> Lspsaga rename<CR>
-nnoremap <silent> K <cmd> Lspsaga hover_doc<CR>
-nnoremap <silent> gd <cmd> Lspsaga peek_definition<CR>
-nnoremap <silent> gr <cmd> Lspsaga lsp_finder<CR>
-nnoremap <silent> <A-w> <cmd> Lspsaga open_floaterm<CR>
-tnoremap <silent> <A-w> <C-\><C-n><cmd>Lspsaga close_floaterm<CR>
-
 "Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -124,3 +115,22 @@ map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
 map <Down> <Esc>:echo 'you don't need this...'<CR>
 ]])
+--Lspsaga
+vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+vim.keymap.set("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+vim.keymap.set("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+vim.keymap.set("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+vim.keymap.set("t", "<A-i>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

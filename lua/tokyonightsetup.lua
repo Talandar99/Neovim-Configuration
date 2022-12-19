@@ -19,6 +19,9 @@ require("tokyonight").setup({
   on_colors = function(colors) end,
   on_highlights = function(highlights, colors) end,
 })
+require('lualine').setup( { options = {
+    theme = 'tokyonight',
+  }})
 vim.cmd 'colorscheme tokyonight'
 vim.cmd 'hi LineNr guifg=#9aa5ce'
 vim.cmd 'hi CursorLineNr guifg=#ff9e64'

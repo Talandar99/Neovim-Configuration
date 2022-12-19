@@ -1,51 +1,27 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<leader>E', vim.cmd.Ex , { desc = 'native filesearch' })
+vim.keymap.set('n', '<leader>c', "<cmd>ColorToggle<CR>", { desc = 'toggle colorizer' })
+--quit
+vim.keymap.set('n', '<leader>q', "<cmd>q<CR>", { desc = 'quit' })
+vim.keymap.set('n', '<leader>wq', "<cmd>bufdo wq!<CR>", { desc = 'write everything and quit' })
+vim.keymap.set('n', '<leader>aa', "<cmd>wa!<CR>", { desc = 'write' })
+local harpoon_mark = require('harpoon.mark')
+local harpoon_ui = require('harpoon.ui')
+vim.keymap.set('n', '<A-e>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
+vim.keymap.set('n', '<A-w>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
+
 vim.cmd([[
-"leader 
-let mapleader=" "
-
-"nmap gds :Gvdiffsplit!<CR>
-nnoremap <leader>ds :DiffviewOpen<CR>
-
 "-- TOGGLES --
-"colorizer
-nnoremap <leader>tc <cmd>ColorToggle<CR>
 "signify
 nmap <leader>ts :SignifyToggle<CR> 
 nmap <leader>th :SignifyToggleHighlight<CR>
 "Git Merginal
 nmap <leader>tm :MerginalToggle<CR>
 "harpoon
-nnoremap <A-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 "Trigger Translation
 nnoremap <Leader>tp <cmd>Pantran source=pl engine=google<CR> 
 nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR> 
-"-- TOGGLES --
-
-"Format json
-nnoremap <leader>js <cmd>%!python -m json.tool<CR>
-
-"Flutter
-nnoremap <leader>fd :FlutterDevices<CR>w
-nnoremap <leader>fe :FlutterEmulators<CR>
-nnoremap <leader>fto :FlutterToolsOpen<CR>
-nnoremap <leader>fr :FlutterRun<CR>
-nnoremap <leader>fq :FlutterQuit<CR>
-
-"Rust
-nnoremap <leader>cx :Cargo build <CR>
-nnoremap <leader>cc :Cargo check <CR>
-nnoremap <leader>cd :Cargo doc --open<CR>
-nnoremap <leader>cu :Cargo update <CR>
-nnoremap <leader>cv :Cargo run <CR>
-
-"quit
-nnoremap <leader>q :q <CR>
-nnoremap <leader>wq :bufdo wq!<CR> 
-nnoremap <leader>wf :w!<CR> 
-nnoremap <leader>aa :wa!<CR>	
-
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
 
@@ -64,20 +40,12 @@ nnoremap <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
 nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
 nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
 nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
-nnoremap <leader>we :lua require("harpoon.mark").add_file()<CR> 
-
-"create split
-nnoremap <leader>sv <cmd>vsplit<>
-nnoremap <silent> ty <cmd>tab split <CR>
 
 "split jumping
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
-
-"open native vim fileview
-nnoremap <leader>fw <cmd>:E<CR>
 
 "moving lines
 nnoremap <silent> <A-j> :MoveLine(1)<CR>
@@ -115,6 +83,7 @@ map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
 map <Down> <Esc>:echo 'you don't need this...'<CR>
 ]])
+
 --Lspsaga
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })

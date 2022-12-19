@@ -1,3 +1,5 @@
+vim.opt.incsearch = true
+vim.opt.scrolloff = 8
 vim.cmd(
 	[[
 set completeopt=menu,menuone,noselect
@@ -19,12 +21,12 @@ set nobackup
 set undodir=~/.nvim-data/backup
 set undofile
 set incsearch
-set tabstop=2
+set tabstop=4
 set softtabstop=0 noexpandtab
-set shiftwidth=2
+set shiftwidth=4
 set clipboard=unnamedplus
 set backspace=indent,eol,start
-set updatetime=300
+set updatetime=50
 set termguicolors
 let g:rust_cargo_check_all_targets = 1
 let g:rustfmt_autosave = 1

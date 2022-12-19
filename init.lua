@@ -1,4 +1,4 @@
--- Packer autoinstalation x
+-- Packer autoinstalation
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -8,7 +8,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function(use)
-	use "lukas-reineke/lsp-format.nvim"--autoformater
 	use 'wbthomason/packer.nvim'-- Package manager
 	use 'tpope/vim-surround'--surround 
 	use 'jiangmiao/auto-pairs'--Auto Pairs
@@ -47,28 +46,27 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal'--Branch management
 	use 'sindrets/diffview.nvim'--Solving merge conflicts 
 	use 'glepnir/lspsaga.nvim'--lsp saga
-		use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }-- Telescope
+	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }-- Telescope
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-  use { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  }
-
-  use { -- Additional text objects via treesitter
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-  }
-
-
-
-
-  if is_bootstrap then
-    require('packer').sync()
-  end
+  	use { -- Highlight, edit, and navigate code
+    	'nvim-treesitter/nvim-treesitter',
+    	run = function()
+      		pcall(require('nvim-treesitter.install').update { with_sync = true })
+    	end,}
+  	use { -- Additional text objects via treesitter
+    	'nvim-treesitter/nvim-treesitter-textobjects',
+    	after = 'nvim-treesitter',}
+  	if is_bootstrap then
+   		require('packer').sync()
+  	end
 end)
 
+
+require("indent_blankline").setup {
+	show_current_context = true,
+    show_current_context_start = true,
+}
 if is_bootstrap then
   print '=================================='
   print '    useins are being installed'
@@ -78,13 +76,15 @@ if is_bootstrap then
   return
 end
 
--- Automatically source and re-compile packer whenever you save this init.lua
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
   command = 'source <afile> | PackerCompile',
   group = packer_group,
   pattern = vim.fn.expand '$MYVIMRC',
 })
+
+
+
 require('initial_setup') --local
 require('key_mappings') --local
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -123,4 +123,3 @@ require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
 require('treesitter_config') -- local
 require('tokyonightsetup') -- local
-require("lsp-format").setup {}

@@ -82,6 +82,7 @@ map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
 map <Down> <Esc>:echo 'you don't need this...'<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
 ]])
 
 --Lspsaga
@@ -100,6 +101,5 @@ vim.keymap.set("n", "]E", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 vim.keymap.set("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.keymap.set("t", "<A-i>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

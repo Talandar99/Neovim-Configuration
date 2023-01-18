@@ -20,7 +20,6 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 require('lualine').setup( { options = {
-	icons_enabled = false,
 	theme = 'tokyonight',
   }})
 vim.cmd 'colorscheme tokyonight'

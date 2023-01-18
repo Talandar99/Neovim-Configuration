@@ -1,11 +1,9 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { "c","lua","rust","typescript","css","html",},
+    ensure_installed = "all",
 
     highlight = {
         enable = true,
         custom_captures = {
-            -- ["<capture group>"] = "<highlight group>",
-            -- ["keyword"] = "TSString",
         },
     },
 

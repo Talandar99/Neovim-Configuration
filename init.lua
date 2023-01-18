@@ -11,7 +11,7 @@ require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'-- Package manager
 	use 'tpope/vim-surround'--surround 
 	use 'jiangmiao/auto-pairs'--Auto Pairs
-	use 'fedepujol/move.nvim'--lines movement
+	use 'matze/vim-move' -- lines movement
 	use 'chrisbra/Colorizer'--Colors highlight 
 	use 'andweeb/presence.nvim'--Discord pressence
 	use 'potamides/pantran.nvim'--Translation in fly

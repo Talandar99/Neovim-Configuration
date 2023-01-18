@@ -169,11 +169,6 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
-  ["move.nvim"] = {
-    loaded = true,
-    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/move.nvim",
-    url = "https://github.com/fedepujol/move.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -273,6 +268,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-mix-format",
     url = "https://github.com/mhinz/vim-mix-format"
+  },
+  ["vim-move"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-move",
+    url = "https://github.com/matze/vim-move"
   },
   ["vim-rhubarb"] = {
     loaded = true,

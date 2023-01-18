@@ -91,8 +91,9 @@ require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
 require('lua_setup') -- local
 require('lspconfig').elixirls.setup{
+	capabilities=capabilities,
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },
-	capabilities=capabilities,} -- (for elixir lsp to work properly change talandar to yout user name)
+} -- (for elixir lsp to work properly change talandar to yout user name)
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
 require('treesitter_config') -- local

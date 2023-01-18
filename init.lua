@@ -45,7 +45,7 @@ require('packer').startup(function(use)
 	use 'junegunn/gv.vim'
 	use 'idanarye/vim-merginal'--Branch management
 	use 'sindrets/diffview.nvim'--Solving merge conflicts 
-	use 'glepnir/lspsaga.nvim'--lsp saga
+	use({"kkharji/lspsaga.nvim",})
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
 use({
     "iamcco/markdown-preview.nvim",
@@ -93,6 +93,7 @@ require('lua_setup') -- local
 require('lspconfig').elixirls.setup{
 	capabilities=capabilities,
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },
+ 	flags = {debounce_text_changes = 150,},
 } -- (for elixir lsp to work properly change talandar to yout user name)
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local

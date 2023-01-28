@@ -82,15 +82,25 @@ map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
 map <Down> <Esc>:echo 'you don't need this...'<CR>
-nnoremap <silent> K <cmd>lua vim.lsp.buf.hover({border = "rounded"})<CR>
 ]])
 
 --Lspsaga
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+--keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>") --rename in project , Require testing
 vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+-- Show line diagnostics
+-- You can pass argument ++unfocus to
+-- unfocus the show_line_diagnostics floating window
+vim.keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
+-- Show cursor diagnostics
+-- Like show_line_diagnostics, it supports passing the ++unfocus argument
+vim.keymap.set("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+
+-- Show buffer diagnostics
+vim.keymap.set("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
@@ -100,6 +110,7 @@ end, { silent = true })
 vim.keymap.set("n", "]E", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
-vim.keymap.set("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-vim.keymap.set("t", "<A-i>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+vim.keymap.set({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")

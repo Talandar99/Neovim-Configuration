@@ -45,7 +45,48 @@ require('packer').startup(function(use)
 	use 'junegunn/gv.vim'
 	use 'idanarye/vim-merginal'--Branch management
 	use 'sindrets/diffview.nvim'--Solving merge conflicts 
-	use({"kkharji/lspsaga.nvim",})
+	use({
+	    "glepnir/lspsaga.nvim",
+	    branch = "main",
+	    config = function()
+			require("lspsaga").setup({
+  ui = {
+    -- Currently, only the round theme exists
+    theme = "round",
+    -- This option only works in Neovim 0.9
+    title = true,
+    -- Border type can be single, double, rounded, solid, shadow.
+    border = "rounded",
+    winblend = 0,
+    expand = "",
+    collapse = "",
+    preview = " ",
+    code_action = "",
+    diagnostic = "🐞",
+    incoming = " ",
+    outgoing = " ",
+    colors = {
+      -- Normal background color for floating window
+      normal_bg = "",
+      -- Title background color
+      title_bg = "#afd700",
+      red = "#e95678",
+      magenta = "#b33076",
+      orange = "#FF8700",
+      yellow = "#f7bb3b",
+      green = "#afd700",
+      cyan = "#36d0e0",
+      blue = "#61afef",
+      purple = "#CBA6F7",
+      white = "#d1d4cf",
+      black = "#1c1c19",
+    },
+    kind = {},
+  },
+						})
+	    end,
+	    requires = { {"nvim-tree/nvim-web-devicons"} }
+	})
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
 use({
     "iamcco/markdown-preview.nvim",

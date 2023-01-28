@@ -24,7 +24,7 @@ set undofile
 set incsearch
 set softtabstop=0 noexpandtab
 set tabstop=3
-set shiftwidth=6
+set shiftwidth=3
 set backspace=indent,eol,start
 set updatetime=50
 set termguicolors

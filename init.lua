@@ -134,8 +134,14 @@ require('lua_setup') -- local
 require('lspconfig').elixirls.setup{
 	capabilities=capabilities,
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },
- 	flags = {debounce_text_changes = 150,},
+ 	flags = {debounce_text_changes = 50,},
+	settings = {
+	  elixirLS = {
+		 fetchDeps = false
+	  }
+	}
 } -- (for elixir lsp to work properly change talandar to yout user name)
+
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
 require('treesitter_config') -- local

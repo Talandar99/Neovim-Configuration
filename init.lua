@@ -137,6 +137,7 @@ require('lspconfig').elixirls.setup{
  	flags = {debounce_text_changes = 50,},
 	settings = {
 	  elixirLS = {
+		 dialyzerEnabled = true,
 		 fetchDeps = false
 	  }
 	}

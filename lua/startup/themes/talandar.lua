@@ -32,7 +32,6 @@ local settings = {
         margin = 0,
         content = {
 { "Init.lua","edit ~/.config/nvim/init.lua","<leader>z" },
-{ "Vimwiki", "VimwikiIndex", "<leader>x" },
 { "Telescope", "Telescope find_files", "<leader>c" },
 { "File View", "E", "<leader>s" },
 { "New File", "lua require'startup'.new_file()", "<leader>d" },

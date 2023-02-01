@@ -154,8 +154,13 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lsp-format.nvim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/lsp-format.nvim",
+    url = "https://github.com/lukas-reineke/lsp-format.nvim"
+  },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\nwhite\f#d1d4cf\rtitle_bg\f#afd700\14normal_bg\5\vpurple\f#CBA6F7\tblue\f#61afef\tcyan\f#36d0e0\ngreen\f#afd700\vyellow\f#f7bb3b\vorange\f#FF8700\fmagenta\f#b33076\nblack\f#1c1c19\bred\f#e95678\1\0\v\rwinblend\3\0\15diagnostic\t🐞\vborder\frounded\ntitle\2\routgoing\t \ntheme\nround\rincoming\t \16code_action\5\fpreview\t \rcollapse\b\vexpand\b\nsetup\flspsaga\frequire\0" },
+    config = { "\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\vpurple\f#CBA6F7\tcyan\f#36d0e0\ngreen\f#afd700\vyellow\f#f7bb3b\vorange\f#FF8700\fmagenta\f#b33076\nblack\f#1c1c19\bred\f#e95678\nwhite\f#d1d4cf\rtitle_bg\f#afd700\14normal_bg\5\tblue\f#61afef\1\0\v\ntheme\nround\rincoming\t \15diagnostic\t🐞\routgoing\t \16code_action\5\fpreview\t \rcollapse\b\vexpand\b\rwinblend\3\0\vborder\frounded\ntitle\2\nsetup\flspsaga\frequire\0" },
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
@@ -299,18 +304,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
-  },
-  vimwiki = {
-    loaded = true,
-    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\nwhite\f#d1d4cf\rtitle_bg\f#afd700\14normal_bg\5\vpurple\f#CBA6F7\tblue\f#61afef\tcyan\f#36d0e0\ngreen\f#afd700\vyellow\f#f7bb3b\vorange\f#FF8700\fmagenta\f#b33076\nblack\f#1c1c19\bred\f#e95678\1\0\v\rwinblend\3\0\15diagnostic\t🐞\vborder\frounded\ntitle\2\routgoing\t \ntheme\nround\rincoming\t \16code_action\5\fpreview\t \rcollapse\b\vexpand\b\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
+try_loadstring("\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\vpurple\f#CBA6F7\tcyan\f#36d0e0\ngreen\f#afd700\vyellow\f#f7bb3b\vorange\f#FF8700\fmagenta\f#b33076\nblack\f#1c1c19\bred\f#e95678\nwhite\f#d1d4cf\rtitle_bg\f#afd700\14normal_bg\5\tblue\f#61afef\1\0\v\ntheme\nround\rincoming\t \15diagnostic\t🐞\routgoing\t \16code_action\5\fpreview\t \rcollapse\b\vexpand\b\rwinblend\3\0\vborder\frounded\ntitle\2\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
 time([[Config for lspsaga.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)

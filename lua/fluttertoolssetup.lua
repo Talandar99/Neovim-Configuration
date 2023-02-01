@@ -3,8 +3,8 @@ require("flutter-tools").setup {
       border = "rounded",
       notification_style = 'plugin'
     },
-    decorations = {
-      statusline = {
+   decorations = {
+   	statusline = {
         app_version = true,
         device = true,
       }

@@ -22,9 +22,9 @@ set smartcase
 set undodir=~/.nvim-data/backup
 set undofile
 set incsearch
+set tabstop=2
 set softtabstop=0 noexpandtab
-set tabstop=3
-set shiftwidth=3
+set shiftwidth=2
 set backspace=indent,eol,start
 set updatetime=50
 set termguicolors
@@ -39,7 +39,8 @@ let g:signify_sign_change            = '~'
 let g:signify_disable_by_default = 1 
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
-let g:vimwiki_list = [{'path': '~/.vimwiki/','syntax': 'markdown', 'ext': '.md'}]
+set nocompatible
+filetype plugin on
 let g:lightline = {'colorscheme': 'tokyonight'}
 let g:LanguageClient_serverCommands = {
     \ 'sh': ['bash-language-server', 'start']

@@ -45,6 +45,7 @@ require('packer').startup(function(use)
 	use 'junegunn/gv.vim'
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
+	use 'python-lsp/python-lsp-server' -- python ls
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -130,7 +131,19 @@ require('lspconfig').html.setup { capabilities = capabilities }
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
-require('lua_setup') -- local
+--require('lua_setup') -- local
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
 require('lspconfig').elixirls.setup {
 	capabilities = capabilities,
 	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },

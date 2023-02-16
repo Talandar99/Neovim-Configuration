@@ -81,7 +81,7 @@ nnoremap <C-u> <C-u>zz
 map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
-map <Down> <Esc>:echo 'you don't need this...'<CR>
+map <Down> <Esc>:echo 'you dont need this...'<CR>
 ]])
 
 --Lspsaga

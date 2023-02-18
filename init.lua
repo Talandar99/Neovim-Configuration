@@ -53,12 +53,9 @@ require('packer').startup(function(use)
 		config = function()
 			require("lspsaga").setup({
 				ui = {
-					-- Currently, only the round theme exists
-					theme = "round",
-					-- This option only works in Neovim 0.9
-					title = true,
-					-- Border type can be single, double, rounded, solid, shadow.
-					border = "rounded",
+					theme = "round", -- Currently, only the round theme exists
+					title = true, -- This option only works in Neovim 0.9
+					border = "rounded",-- Border type can be single, double, rounded, solid, shadow.
 					winblend = 0,
 					expand = "",
 					collapse = "",
@@ -68,9 +65,7 @@ require('packer').startup(function(use)
 					incoming = " ",
 					outgoing = " ",
 					colors = {
-						-- Normal background color for floating window
 						normal_bg = "",
-						-- Title background color
 						title_bg = "#9ece6a",
 						red = "#f7768e",
 						magenta = "#bb9af7",
@@ -175,7 +170,6 @@ require("presence"):setup({
 	buttons            = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
 	file_assets        = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
 	show_time          = true, -- Show the timer
-
 	-- Rich Presence text options
 	editing_text        = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 	file_explorer_text  = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)

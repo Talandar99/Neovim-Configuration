@@ -46,6 +46,7 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
 	use 'python-lsp/python-lsp-server' -- python ls
+	use 'haskell/haskell-language-server' -- haskell ls
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -132,6 +133,9 @@ require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
 --require('lua_setup') -- local
+require('lspconfig')['hls'].setup{
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
 require'lspconfig'.pylsp.setup{
   settings = {
     pylsp = {

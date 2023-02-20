@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.keymap.set('n', '<leader>M', "<cmd>Mason<CR>" , { desc = 'run Mason' })
 vim.keymap.set('n', '<leader>E', vim.cmd.Ex , { desc = 'native filesearch' })
 vim.keymap.set('n', '<leader>c', "<cmd>ColorToggle<CR>", { desc = 'toggle colorizer' })
 --quit

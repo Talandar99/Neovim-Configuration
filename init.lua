@@ -40,7 +40,6 @@ require('packer').startup(function(use)
 	use 'dart-lang/dart-vim-plugin'
 	use 'akinsho/flutter-tools.nvim'
 	use 'mhinz/vim-mix-format' --Elixir
-	use 'elixir-lsp/elixir-ls'
 	use 'simrat39/rust-tools.nvim' --Rust
 	use 'rust-lang/rust.vim'
 	use 'mhinz/vim-signify' --Signify
@@ -50,7 +49,6 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
 	use 'python-lsp/python-lsp-server' -- python ls
---	use 'haskell/haskell-language-server' -- haskell ls
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -122,7 +120,18 @@ require("indent_blankline").setup {
 require('initial_setup') --local
 require('key_mappings') --local
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("mason").setup()
+require("mason").setup(
+	{
+		ui = {
+				border = "single",
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+	}
+)
 require("mason-lspconfig").setup({
     ensure_installed = {"lua_ls"},
 })

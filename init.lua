@@ -135,7 +135,7 @@ require("mason").setup(
 require("mason-lspconfig").setup({
     ensure_installed = {"lua_ls"},
 })
-require("lspconfig").lua_ls.setup{ capabilities=capabilities }
+require("lspconfig").lua_ls.setup({	capabilities=capabilities })
 require('rust-tools').setup { capabilities = capabilities }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"

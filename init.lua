@@ -8,6 +8,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 -- lua vim.lsp.buf.formatting_sync() --autoformating
+
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- Package manager
 	use 'tpope/vim-surround' --surround
@@ -22,7 +23,10 @@ require('packer').startup(function(use)
 	use 'nvim-telescope/telescope-file-browser.nvim'
 	use 'startup-nvim/startup.nvim' --startup
 	use 'ThePrimeagen/harpoon' --Harpoon
-	use 'neovim/nvim-lspconfig' --LSP
+	use { -- LSP + MASON
+    	"williamboman/mason.nvim",
+    	"williamboman/mason-lspconfig.nvim",
+    	"neovim/nvim-lspconfig",}
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -46,7 +50,7 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
 	use 'python-lsp/python-lsp-server' -- python ls
-	use 'haskell/haskell-language-server' -- haskell ls
+--	use 'haskell/haskell-language-server' -- haskell ls
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -118,6 +122,11 @@ require("indent_blankline").setup {
 require('initial_setup') --local
 require('key_mappings') --local
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = {"lua_ls"},
+})
+require("lspconfig").lua_ls.setup{ capabilities=capabilities }
 require('rust-tools').setup { capabilities = capabilities }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
@@ -127,9 +136,8 @@ require('lspconfig').html.setup { capabilities = capabilities }
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
---require('lua_setup') -- local
 require('lspconfig')['hls'].setup{
-  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+	filetypes = { 'haskell', 'lhaskell', 'cabal' },
 }
 require'lspconfig'.pylsp.setup{
   settings = {
@@ -155,10 +163,10 @@ require('lspconfig').elixirls.setup {
 } -- (for elixir lsp to work properly change talandar to yout user name)
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
+-- mason setup
 require('treesitter_config') -- local
 require('tokyonightsetup') -- local
 require("presence"):setup({
-	-- General options
 	auto_update        = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
 	neovim_image_text  = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
 	main_image         = "neovim", -- Main image display (either "neovim" or "file")
@@ -170,7 +178,6 @@ require("presence"):setup({
 	buttons            = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
 	file_assets        = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
 	show_time          = true, -- Show the timer
-	-- Rich Presence text options
 	editing_text        = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 	file_explorer_text  = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
 	git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)

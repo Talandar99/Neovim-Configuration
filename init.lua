@@ -1,4 +1,3 @@
--- Packer autoinstalation
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -7,7 +6,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.cmd [[packadd packer.nvim]]
 end
 
--- lua vim.lsp.buf.formatting_sync() --autoformating
+--autoformating for config
+--lua vim.lsp.buf.format()
 
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- Package manager
@@ -24,9 +24,9 @@ require('packer').startup(function(use)
 	use 'startup-nvim/startup.nvim' --startup
 	use 'ThePrimeagen/harpoon' --Harpoon
 	use { -- LSP + MASON
-    	"williamboman/mason.nvim",
-    	"williamboman/mason-lspconfig.nvim",
-    	"neovim/nvim-lspconfig",}
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig", }
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -57,7 +57,7 @@ require('packer').startup(function(use)
 				ui = {
 					theme = "round", -- Currently, only the round theme exists
 					title = true, -- This option only works in Neovim 0.9
-					border = "rounded",-- Border type can be single, double, rounded, solid, shadow.
+					border = "rounded", -- Border type can be single, double, rounded, solid, shadow.
 					winblend = 0,
 					expand = "",
 					collapse = "",
@@ -123,19 +123,19 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 require("mason").setup(
 	{
 		ui = {
-				border = "single",
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+			border = "single",
+			icons = {
+				package_installed = "✓",
+				package_pending = "➜",
+				package_uninstalled = "✗"
+			}
+		}
 	}
 )
 require("mason-lspconfig").setup({
-    ensure_installed = {"lua_ls"},
+	ensure_installed = { "lua_ls" },
 })
-require("lspconfig").lua_ls.setup({	capabilities=capabilities })
+require("lspconfig").lua_ls.setup({ capabilities = capabilities })
 require('rust-tools').setup { capabilities = capabilities }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
@@ -145,20 +145,20 @@ require('lspconfig').html.setup { capabilities = capabilities }
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
-require('lspconfig')['hls'].setup{
+require('lspconfig')['hls'].setup {
 	filetypes = { 'haskell', 'lhaskell', 'cabal' },
 }
-require'lspconfig'.pylsp.setup{
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = {'W391'},
-          maxLineLength = 100
-        }
-      }
-    }
-  }
+require 'lspconfig'.pylsp.setup {
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = { 'W391' },
+					maxLineLength = 100
+				}
+			}
+		}
+	}
 }
 require('lspconfig').elixirls.setup {
 	capabilities = capabilities,
@@ -176,17 +176,17 @@ require('lsp_floating_window_border') --local
 require('treesitter_config') -- local
 require('tokyonightsetup') -- local
 require("presence"):setup({
-	auto_update        = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-	neovim_image_text  = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-	main_image         = "neovim", -- Main image display (either "neovim" or "file")
-	client_id          = "793271441293967371", -- Use your own Discord application client id (not recommended)
-	log_level          = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-	debounce_timeout   = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-	enable_line_number = false, -- Displays the current line number instead of the current project
-	blacklist          = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-	buttons            = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-	file_assets        = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-	show_time          = true, -- Show the timer
+	auto_update         = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+	neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+	main_image          = "neovim", -- Main image display (either "neovim" or "file")
+	client_id           = "793271441293967371", -- Use your own Discord application client id (not recommended)
+	log_level           = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+	debounce_timeout    = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+	enable_line_number  = false, -- Displays the current line number instead of the current project
+	blacklist           = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+	buttons             = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+	file_assets         = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+	show_time           = true, -- Show the timer
 	editing_text        = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 	file_explorer_text  = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
 	git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)

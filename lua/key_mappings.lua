@@ -92,9 +92,7 @@ vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 --keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>") --rename in project , Require testing
 vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { silent = true })
 vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
--- Show line diagnostics
--- You can pass argument ++unfocus to
--- unfocus the show_line_diagnostics floating window
+-- Show line diagnostics You can pass argument ++unfocus to unfocus the show_line_diagnostics floating window
 vim.keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
 
 -- Show cursor diagnostics
@@ -115,4 +113,4 @@ end, { silent = true })
 vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-vim.keymap.set({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")

@@ -145,9 +145,6 @@ require('lspconfig').html.setup { capabilities = capabilities }
 require('php_setup') -- local
 require('rustanalyzersetup') -- local
 require('fluttertoolssetup') -- local
-require('lspconfig')['hls'].setup {
-	filetypes = { 'haskell', 'lhaskell', 'cabal' },
-}
 require 'lspconfig'.pylsp.setup {
 	settings = {
 		pylsp = {
@@ -172,7 +169,7 @@ require('lspconfig').elixirls.setup {
 } -- (for elixir lsp to work properly change talandar to yout user name)
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
--- mason setup
+require'lspconfig'.clangd.setup{}
 require('treesitter_config') -- local
 require('tokyonightsetup') -- local
 require("presence"):setup({

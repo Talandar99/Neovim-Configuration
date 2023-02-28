@@ -1,4 +1,5 @@
 require("flutter-tools").setup {
+	capabilities =capabilities,
     ui = {
       border = "rounded",
       notification_style = 'plugin'

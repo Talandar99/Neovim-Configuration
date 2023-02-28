@@ -49,6 +49,17 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
 	use 'python-lsp/python-lsp-server' -- python ls
+	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function() vim.fn["mkdp#util#install"]() end,
+	})
+	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } } -- Telescope
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+	use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
+		pcall(require('nvim-treesitter.install').update { with_sync = true })
+	end, }
+	use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter', } -- Additional text objects via treesitter
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -86,17 +97,6 @@ require('packer').startup(function(use)
 		end,
 		requires = { { "nvim-tree/nvim-web-devicons" } }
 	})
-	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function() vim.fn["mkdp#util#install"]() end,
-	})
-	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } } -- Telescope
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-	use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
-		pcall(require('nvim-treesitter.install').update { with_sync = true })
-	end, }
-	use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter', } -- Additional text objects via treesitter
 	if is_bootstrap then require('packer').sync() end
 end)
 if is_bootstrap then
@@ -119,7 +119,7 @@ require("indent_blankline").setup {
 }
 require('initial_setup') --local
 require('key_mappings') --local
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 require("mason").setup(
 	{
 		ui = {
@@ -135,41 +135,12 @@ require("mason").setup(
 require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls" },
 })
-require("lspconfig").lua_ls.setup({ capabilities = capabilities })
-require('rust-tools').setup { capabilities = capabilities }
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require("startup").setup({ theme = "talandar" }) -- put theme name here
-require('lspconfig').bashls.setup { capabilities = capabilities }
-require('lspconfig').html.setup { capabilities = capabilities }
-require('php_setup') -- local
-require('rustanalyzersetup') -- local
-require('fluttertoolssetup') -- local
-require 'lspconfig'.pylsp.setup {
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					ignore = { 'W391' },
-					maxLineLength = 100
-				}
-			}
-		}
-	}
-}
-require('lspconfig').elixirls.setup {
-	capabilities = capabilities,
-	cmd = { "/home/talandar/.config/nvim/elixir-ls/language_server.sh" },
-	settings = {
-		elixirLS = {
-			dialyzerEnabled = false,
-			fetchDeps = false
-		}
-	}
-} -- (for elixir lsp to work properly change talandar to yout user name)
+require('lsp_servers') -- local
 require('cmpsetup') -- local
 require('lsp_floating_window_border') --local
-require'lspconfig'.clangd.setup{}
 require('treesitter_config') -- local
 require('tokyonightsetup') -- local
 require("presence"):setup({

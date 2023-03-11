@@ -8,7 +8,6 @@
 - merginal (git branch management)
 - fugitive (basic git operations)
 - autopairs (automaticly creates "()" insted "(")
-- pantran (built in translator)
 - Modified TokioNight storm (theme)
 - Configured LSP for:
 	- Rust

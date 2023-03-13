@@ -5,10 +5,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 	vim.cmd [[packadd packer.nvim]]
 end
-
 --autoformating for config
 --lua vim.lsp.buf.format()
-
 require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim' -- Package manager
 	use 'tpope/vim-surround' --surround

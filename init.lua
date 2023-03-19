@@ -46,7 +46,6 @@ require('packer').startup(function(use)
 	use 'junegunn/gv.vim'
 	use 'idanarye/vim-merginal' --Branch management
 	use 'sindrets/diffview.nvim' --Solving merge conflicts
-	use 'python-lsp/python-lsp-server' -- python ls
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
 	use({
 		"iamcco/markdown-preview.nvim",

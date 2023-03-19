@@ -1,4 +1,9 @@
 # My neovim configuration
+## Key plugins
+- Mason 
+- Harpoon
+- fugitive
+- Telescope 
 
 ## How to update 
 - go inside nvim folder 

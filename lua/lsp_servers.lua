@@ -113,6 +113,7 @@ require('lspconfig').elixirls.setup {
 	}
 } -- (for elixir lsp to work properly change talandar to yout user name)
 require('lspconfig').phpactor.setup{}
+require('lspconfig').tailwindcss.setup{}
 require('lspconfig').intelephense.setup({
 		settings = {
 				intelephense = {
@@ -141,4 +142,3 @@ require('lspconfig').intelephense.setup({
 				};
 		}
 })
-

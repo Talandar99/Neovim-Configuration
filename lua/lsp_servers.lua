@@ -1,7 +1,10 @@
 require('lspconfig').rust_analyzer.setup({
-capabilities = capabilities,
+	capabilities = capabilities,
     settings = {
         ["rust-analyzer"] = {
+						diagnostics = {
+							enable = true,
+						},
             imports = {
                 granularity = {
                     group = "module",
@@ -13,12 +16,13 @@ capabilities = capabilities,
                     enable = true,
                 },
             },
-            procMacro = {
+						procMacro = {
                 enable = true
             },
         }
 		}
 })
+require('rust-tools').setup { capabilities = capabilities }
 require("flutter-tools").setup {
 	capabilities =capabilities,
     ui = {
@@ -89,7 +93,6 @@ require('lspconfig').lua_ls.setup {
 }
 require('lspconfig').clangd.setup{}
 require('lspconfig').bashls.setup { capabilities = capabilities }
-require('rust-tools').setup { capabilities = capabilities }
 require('lspconfig').pylsp.setup {
 	settings = {
 		pylsp = {

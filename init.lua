@@ -24,6 +24,9 @@ require('packer').startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig", }
+	use {
+		'mfussenegger/nvim-dap',
+		'jay-babu/mason-nvim-dap.nvim', } -- dap
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -136,8 +139,22 @@ require("mason-lspconfig").setup({
 })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
-require("startup").setup({ theme = "talandar" })    -- put theme name here
-require('lsp_servers')                              -- local
+require("startup").setup({ theme = "talandar" }) -- put theme name here
+require('lsp_servers')                           -- local
+require("mason-nvim-dap").setup({
+	automatic_setup = true,
+	ensure_installed = { "python", "rust" }
+})
+--local dap = require('dap')
+--dap.adapters.lldb = {
+--	type = 'executable',
+--	-- command = 'lldb-vscode', -- I tried this
+--	-- command = 'vscode-lldb', -- also tried this
+--	command = 'rust-lldb', -- and this
+--	--command = '/home/name/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/lldb/bin/lldb', -- even this
+--	name = "lldb"
+--}
+
 require('cmpsetup')                                 -- local
 require('lsp_floating_window_border')               --local
 require('treesitter_config')                        -- local

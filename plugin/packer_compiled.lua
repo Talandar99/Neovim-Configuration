@@ -150,7 +150,7 @@ _G.packer_plugins = {
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lspsaga.nvim"] = {
-    config = { "\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\vpurple\f#bb9af7\vorange\f#ff9e64\nwhite\f#cfc9c2\fmagenta\f#bb9af7\nblack\f#414868\bred\f#f7768e\rtitle_bg\f#9ece6a\14normal_bg\5\tblue\f#7aa2f7\tcyan\f#2ac3de\ngreen\f#9ece6a\vyellow\f#e0af68\1\0\v\fpreview\t \15diagnostic\t🐞\rcollapse\b\vexpand\b\rwinblend\3\0\vborder\frounded\ntitle\2\ntheme\nround\routgoing\t \rincoming\t \16code_action\5\nsetup\flspsaga\frequire\0" },
+    config = { "\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\bred\f#f7768e\vpurple\f#bb9af7\rtitle_bg\f#9ece6a\14normal_bg\5\nwhite\f#cfc9c2\tblue\f#7aa2f7\nblack\f#414868\tcyan\f#2ac3de\ngreen\f#9ece6a\vyellow\f#e0af68\vorange\f#ff9e64\fmagenta\f#bb9af7\1\0\v\vexpand\b\rwinblend\3\0\routgoing\t \vborder\frounded\ntitle\2\ntheme\nround\rincoming\t \16code_action\5\15diagnostic\t🐞\fpreview\t \rcollapse\b\nsetup\flspsaga\frequire\0" },
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-nvim-dap.nvim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/mason-nvim-dap.nvim",
+    url = "https://github.com/jay-babu/mason-nvim-dap.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/mason.nvim",
@@ -179,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -310,7 +320,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\vpurple\f#bb9af7\vorange\f#ff9e64\nwhite\f#cfc9c2\fmagenta\f#bb9af7\nblack\f#414868\bred\f#f7768e\rtitle_bg\f#9ece6a\14normal_bg\5\tblue\f#7aa2f7\tcyan\f#2ac3de\ngreen\f#9ece6a\vyellow\f#e0af68\1\0\v\fpreview\t \15diagnostic\t🐞\rcollapse\b\vexpand\b\rwinblend\3\0\vborder\frounded\ntitle\2\ntheme\nround\routgoing\t \rincoming\t \16code_action\5\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
+try_loadstring("\27LJ\2\n�\3\0\0\5\0\t\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\3\0005\4\4\0=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\aui\1\0\0\tkind\vcolors\1\0\f\bred\f#f7768e\vpurple\f#bb9af7\rtitle_bg\f#9ece6a\14normal_bg\5\nwhite\f#cfc9c2\tblue\f#7aa2f7\nblack\f#414868\tcyan\f#2ac3de\ngreen\f#9ece6a\vyellow\f#e0af68\vorange\f#ff9e64\fmagenta\f#bb9af7\1\0\v\vexpand\b\rwinblend\3\0\routgoing\t \vborder\frounded\ntitle\2\ntheme\nround\rincoming\t \16code_action\5\15diagnostic\t🐞\fpreview\t \rcollapse\b\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
 time([[Config for lspsaga.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)

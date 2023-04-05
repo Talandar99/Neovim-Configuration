@@ -99,7 +99,7 @@ require('rust-tools').setup({
   dap = {
     adapter = {
       type = "executable",
-      command = "lldb-vscode",
+      command = "codelldb",
       name = "rt_lldb",
     },
   },

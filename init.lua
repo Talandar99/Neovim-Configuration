@@ -25,8 +25,8 @@ require('packer').startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig", }
 	use {
-		'mfussenegger/nvim-dap',
-		'jay-babu/mason-nvim-dap.nvim', } -- dap
+		'jay-babu/mason-nvim-dap.nvim',
+		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }, } -- dap
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -145,15 +145,28 @@ require("mason-nvim-dap").setup({
 	automatic_setup = true,
 	ensure_installed = { "python", "rust" }
 })
---local dap = require('dap')
---dap.adapters.lldb = {
---	type = 'executable',
---	-- command = 'lldb-vscode', -- I tried this
---	-- command = 'vscode-lldb', -- also tried this
---	command = 'rust-lldb', -- and this
---	--command = '/home/name/.vscode/extensions/vadimcn.vscode-lldb-1.6.10/lldb/bin/lldb', -- even this
---	name = "lldb"
---}
+--dap
+local dap = require('dap')
+dap.adapters.codelldb = {
+	type = 'server',
+	host = '127.0.0.1',
+	port = 13000 -- 💀 Use the port printed out or specified with `--port`
+}
+local dap = require('dap')
+dap.configurations.cpp = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+		end,
+		cwd = '${workspaceFolder}',
+		stopOnEntry = false,
+	},
+}
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 require('cmpsetup')                                 -- local
 require('lsp_floating_window_border')               --local

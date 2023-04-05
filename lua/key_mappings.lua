@@ -12,11 +12,12 @@ local harpoon_ui = require('harpoon.ui')
 vim.keymap.set('n', '<A-e>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
 vim.keymap.set('n', '<A-w>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
 
+--signify
+vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
+vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
+
 vim.cmd([[
 "-- TOGGLES --
-"signify
-nmap <leader>ts :SignifyToggle<CR> 
-nmap <leader>th :SignifyToggleHighlight<CR>
 "Git Merginal
 nmap <leader>tm :MerginalToggle<CR>
 "harpoon
@@ -25,7 +26,6 @@ nnoremap <Leader>tp <cmd>Pantran source=pl engine=google<CR>
 nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR> 
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
-
 
 "open telescope (close have same binding)
 nnoremap <C-c> :Telescope find_files<CR>
@@ -82,7 +82,7 @@ nnoremap <C-u> <C-u>zz
 map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
-map <Down> <Esc>:echo 'you dont need this...'<CR>
+map <Down> <Esc>:echo 'you don\'t need this...'<CR>
 ]])
 
 --Lspsaga
@@ -94,7 +94,6 @@ vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { silent = true })
 vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 -- Show line diagnostics You can pass argument ++unfocus to unfocus the show_line_diagnostics floating window
 vim.keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
-
 -- Show cursor diagnostics
 -- Like show_line_diagnostics, it supports passing the ++unfocus argument
 vim.keymap.set("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
@@ -113,4 +112,7 @@ end, { silent = true })
 vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+--terminal
 vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set({"t"}, "<leader>q", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>',{desc = 'enter command mode in termianl'})

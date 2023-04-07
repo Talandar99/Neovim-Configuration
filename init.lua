@@ -26,7 +26,7 @@ require('packer').startup(function(use)
 		"neovim/nvim-lspconfig", }
 	use {
 		'jay-babu/mason-nvim-dap.nvim',
-		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }, } -- dap
+		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },} -- dap
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'

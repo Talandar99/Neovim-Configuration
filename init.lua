@@ -26,7 +26,7 @@ require('packer').startup(function(use)
 		"neovim/nvim-lspconfig", }
 	use {
 		'jay-babu/mason-nvim-dap.nvim',
-		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },} -- dap
+		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }, } -- dap
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -139,35 +139,8 @@ require("mason-lspconfig").setup({
 })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
-require("startup").setup({ theme = "talandar" }) -- put theme name here
-require('lsp_servers')                           -- local
-require("mason-nvim-dap").setup({
-	automatic_setup = true,
-	ensure_installed = { "python", "rust" }
-})
---dap
-local dap = require('dap')
-dap.adapters.codelldb = {
-	type = 'server',
-	host = '127.0.0.1',
-	port = 13000 -- 💀 Use the port printed out or specified with `--port`
-}
-local dap = require('dap')
-dap.configurations.cpp = {
-	{
-		name = "Launch file",
-		type = "codelldb",
-		request = "launch",
-		program = function()
-			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-		end,
-		cwd = '${workspaceFolder}',
-		stopOnEntry = false,
-	},
-}
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
-
+require("startup").setup({ theme = "talandar" })    -- put theme name here
+require('lsp_servers')                              -- local
 require('cmpsetup')                                 -- local
 require('lsp_floating_window_border')               --local
 require('treesitter_config')                        -- local

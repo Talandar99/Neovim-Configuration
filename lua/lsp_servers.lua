@@ -1,3 +1,25 @@
+require("mason-nvim-dap").setup({
+	automatic_setup = true,
+	ensure_installed = { "python", "rust" }
+})
+--dap rust
+require("dapui").setup()
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
+local mason_registry = require("mason-registry")
+local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
+local codelldb_path = codelldb_root .. "adapter/codelldb"
+local liblldb_path = codelldb_root .. "lldb/lib/liblldb.so"
+dap.adapters.rust = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+-- rust lsp
 require('rust-tools').setup({
   tools = { -- rust-tools options
     executor = require("rust-tools.executors").termopen,
@@ -95,14 +117,7 @@ require('rust-tools').setup({
   server = {
     standalone = true,
   }, -- rust-analyzer options
-  -- debugging stuff
-  dap = {
-    adapter = {
-      type = "executable",
-      command = "codelldb",
-      name = "rt_lldb",
-    },
-  },
+	dap = { adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path) },
 })
 require("flutter-tools").setup {
 	capabilities =capabilities,

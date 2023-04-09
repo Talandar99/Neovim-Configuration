@@ -116,3 +116,15 @@ vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")
 vim.keymap.set({"t"}, "<leader>q", "<cmd>Lspsaga term_toggle<CR>")
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>',{desc = 'enter command mode in termianl'})
+--debuging
+vim.keymap.set("n", '<leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set("n", '<F10>', function() require('dap').continue() end)
+vim.keymap.set("n", '<F11>', function() require('dap').step_into() end)
+vim.keymap.set("n", '<F12>', function() require('dap').step_over() end)
+--automaticly add debuger shortkay if file is rust file
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "*.rs",
+  callback = function()
+		vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
+  end,
+})

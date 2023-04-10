@@ -155,7 +155,7 @@ require("presence"):setup({
 	enable_line_number  = false,                      -- Displays the current line number instead of the current project
 	blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
 	buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-	file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+	file_assets         = {},                         -- Custom file asset definitions by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
 	show_time           = true,                       -- Show the timer
 	editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
 	file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)

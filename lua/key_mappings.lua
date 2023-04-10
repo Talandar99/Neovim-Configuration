@@ -82,7 +82,7 @@ nnoremap <C-u> <C-u>zz
 map <Left> <Esc>:echo 'embrace vim'<CR>
 map <Right> <Esc>:echo 'you are weak'<CR>
 map <Up> <Esc>:echo 'never slow down'<CR>
-map <Down> <Esc>:echo 'you don\'t need this...'<CR>
+map <Down> <Esc>:echo 'you dont need this...'<CR>
 ]])
 
 --Lspsaga
@@ -99,7 +99,7 @@ vim.keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
 
 -- Show buffer diagnostics
-vim.keymap.set("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+vim.keymap.set("n", "<leader>sd", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
@@ -110,7 +110,6 @@ vim.keymap.set("n", "]E", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>")
-vim.keymap.set("n", "<A-i>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 --terminal
 vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")

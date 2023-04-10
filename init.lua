@@ -23,9 +23,11 @@ require('packer').startup(function(use)
 	use {                             -- LSP + MASON
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig", }
 	use {
 		'jay-babu/mason-nvim-dap.nvim',
+		'mfussenegger/nvim-dap-python',
 		{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }, } -- dap
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -49,6 +51,7 @@ require('packer').startup(function(use)
 	use 'idanarye/vim-merginal'              --Branch management
 	use 'sindrets/diffview.nvim'             --Solving merge conflicts
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+	use 'ThePrimeagen/harpoon'               --Harpoon
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
@@ -59,7 +62,6 @@ require('packer').startup(function(use)
 		pcall(require('nvim-treesitter.install').update { with_sync = true })
 	end, }
 	use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter', } -- Additional text objects via treesitter
-	use 'ThePrimeagen/harpoon'                                                       --Harpoon
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -122,21 +124,36 @@ require("indent_blankline").setup {
 require('initial_setup') --local
 require('key_mappings')  --local
 capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require("mason").setup(
-	{
-		ui = {
-			border = "single",
-			icons = {
-				package_installed = "✅",
-				package_pending = "🔨",
-				package_uninstalled = "📦"
-			}
+require("mason").setup({
+	ui = {
+		border = "single",
+		icons = {
+			package_installed = "✅",
+			package_pending = "🔨",
+			package_uninstalled = "📦"
 		}
 	}
-)
-require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls" },
 })
+require("mason-lspconfig").setup({})
+require('mason-tool-installer').setup {
+	ensure_installed = {
+		{ 'bash-language-server',        auto_update = true },
+		{ 'lua_ls',                      auto_update = true },
+		{ 'shellcheck',                  auto_update = true },
+		{ 'tailwindcss-language-server', auto_update = true },
+		{ 'lua-language-server',         auto_update = true },
+		{ "codelldb",                    auto_update = true },
+		{ "debugpy",                     auto_update = true },
+		{ "lua-language-server",         auto_update = true },
+		{ "python-lsp-server",           auto_update = true },
+		{ "rust-analyzer",               auto_update = true },
+		{ "html-lsp",                    auto_update = true },
+	},
+	auto_update = true,
+	run_on_start = true,
+	start_delay = 3000, -- 3 second delay
+	debounce_hours = 5, -- at least 5 hours between attempts to install/update
+}
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require("startup").setup({ theme = "talandar" })    -- put theme name here

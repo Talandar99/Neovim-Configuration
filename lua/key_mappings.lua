@@ -127,3 +127,10 @@ vim.api.nvim_create_autocmd("BufRead", {
 		vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
   end,
 })
+--automaticly add debuger shortkay if file is python file
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "*.py",
+  callback = function()
+		vim.keymap.set("n", '<F5>', function() require('dap').continue() end)
+  end,
+})

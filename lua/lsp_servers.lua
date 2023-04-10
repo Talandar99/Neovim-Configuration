@@ -2,6 +2,7 @@ require("mason-nvim-dap").setup({
 	automatic_setup = true,
 	ensure_installed = { "python", "rust" }
 })
+
 --dap rust
 require("dapui").setup()
 local dap, dapui = require("dap"), require("dapui")
@@ -18,7 +19,11 @@ local mason_registry = require("mason-registry")
 local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
 local codelldb_path = codelldb_root .. "adapter/codelldb"
 local liblldb_path = codelldb_root .. "lldb/lib/liblldb.so"
+
 dap.adapters.rust = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+--dap python
+local debugpy_path = mason_registry.get_package("debugpy"):get_install_path() .. "/venv/bin/python"
+require('dap-python').setup(debugpy_path)
 -- rust lsp
 require('rust-tools').setup({
   tools = { -- rust-tools options

@@ -134,11 +134,14 @@ require("mason").setup({
 		}
 	}
 })
-require("mason-lspconfig").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		'lua_ls',
+	},
+})
 require('mason-tool-installer').setup {
 	ensure_installed = {
 		{ 'bash-language-server',        auto_update = true },
-		{ 'lua_ls',                      auto_update = true },
 		{ 'shellcheck',                  auto_update = true },
 		{ 'tailwindcss-language-server', auto_update = true },
 		{ 'lua-language-server',         auto_update = true },

@@ -16,6 +16,8 @@ vim.keymap.set('n', '<A-w>', harpoon_mark.add_file, { desc = 'open harpoon menu'
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
 
+
+
 vim.cmd([[
 "-- TOGGLES --
 "Git Merginal

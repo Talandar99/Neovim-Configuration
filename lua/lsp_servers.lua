@@ -120,7 +120,7 @@ require('rust-tools').setup({
     },
   },
   server = {
-    standalone = true,
+    standalone = false,
   }, -- rust-analyzer options
 	dap = { adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path) },
 })

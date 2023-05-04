@@ -94,6 +94,7 @@ vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 --keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>") --rename in project , Require testing
 vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { silent = true })
 vim.keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+
 -- Show line diagnostics You can pass argument ++unfocus to unfocus the show_line_diagnostics floating window
 vim.keymap.set("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
 -- Show cursor diagnostics

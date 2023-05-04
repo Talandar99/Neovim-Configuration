@@ -172,26 +172,7 @@ require("flutter-tools").setup {
     }
   }
 require('lspconfig').html.setup { capabilities = capabilities }
-require('lspconfig').lua_ls.setup {
-	capabilities = capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT',
-			},
-			diagnostics = {
-				globals = {'vim'},
-			},
-			workspace = {
-				checkThirdParty = false,
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-}
+require('lspconfig').lua_ls.setup {capabilities = capabilities}
 require('lspconfig').clangd.setup{}
 require('lspconfig').bashls.setup { capabilities = capabilities }
 require('lspconfig').pylsp.setup {

@@ -5,6 +5,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 	vim.cmd [[packadd packer.nvim]]
 end
+
 --autoformating for config
 --lua vim.lsp.buf.format()
 require('packer').startup(function(use)
@@ -124,7 +125,7 @@ require("indent_blankline").setup {
 require('initial_setup') --local
 require('key_mappings')  --local
 capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-require('mason_config')            --local
+require('mason_config')  --local
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require("startup").setup({ theme = "talandar" }) -- put theme name here
@@ -134,3 +135,4 @@ require('lsp_floating_window_border')            --local
 require('treesitter_config')                     -- local
 require('tokyonightsetup')                       -- local
 require('discord_presence')                      -- local
+require('format_xml')

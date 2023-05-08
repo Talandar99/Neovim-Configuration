@@ -53,6 +53,9 @@ require('packer').startup(function(use)
 	use 'sindrets/diffview.nvim'             --Solving merge conflicts
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
 	use 'ThePrimeagen/harpoon'               --Harpoon
+	use 'mechatroner/rainbow_csv' 						--csv rainbow colors
+	--use 'SirVer/ultisnips'                 --snippets
+	--use 'akretion/vim-odoo-snippets'        --odoo snippets
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
@@ -116,6 +119,8 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
+
+package.path = package.path .. ";/home/talandar/workspace/work/odoo/?.lua"
 -- Autoformat on save
 vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 require("indent_blankline").setup {

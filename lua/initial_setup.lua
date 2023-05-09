@@ -22,9 +22,9 @@ set smartcase
 set undodir=~/.nvim-data/backup
 set undofile
 set incsearch
-set tabstop=2
+set tabstop=4
 set softtabstop=0 noexpandtab
-set shiftwidth=2
+set shiftwidth=4
 set backspace=indent,eol,start
 set updatetime=50
 set termguicolors

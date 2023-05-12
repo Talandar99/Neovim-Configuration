@@ -16,8 +16,6 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 vim.opt.hlsearch = false
 vim.opt.smartcase = true
-vim.opt.undodir = '~/.nvim-data/backup'
-vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
@@ -26,7 +24,6 @@ vim.opt.shiftwidth = 4
 vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
-
 vim.g.rust_cargo_check_all_targets = 1
 vim.g.rustfmt_autosave = 1
 vim.g.dart_format_on_save = 1
@@ -47,3 +44,9 @@ vim.g.LanguageClient_serverCommands = {
 }
 vim.g.mix_format_on_save = 1
 vim.g.mix_format_silent_errors = 1
+
+vim.cmd([[
+set undodir=~/.nvim-data/backup
+set undofile
+]]
+)

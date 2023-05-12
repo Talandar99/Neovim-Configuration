@@ -18,7 +18,6 @@ require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim' --bottom bar
 	use 'folke/tokyonight.nvim'     --tokyonight theme
 	use 'kyazdani42/nvim-web-devicons' --icons in your statusline
-	use 'nvim-telescope/telescope-file-browser.nvim'
 	use 'startup-nvim/startup.nvim' --startup
 	use {                           -- LSP + MASON
 		"williamboman/mason.nvim",
@@ -58,6 +57,7 @@ require('packer').startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
+	use 'nvim-telescope/telescope-file-browser.nvim'
 	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } } -- Telescope
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 	use { 'nvim-treesitter/nvim-treesitter', run = function()                                      -- Highlight, edit, and navigate code
@@ -108,6 +108,7 @@ if is_bootstrap then
 	print '    useins are being installed'
 	print '    Wait until Packer completes,'
 	print '       then restart nvim'
+	print '       and type :MasonUpdate'
 	print '=================================='
 	return
 end

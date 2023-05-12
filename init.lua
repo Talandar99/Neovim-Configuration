@@ -5,7 +5,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 	vim.cmd [[packadd packer.nvim]]
 end
-
 --autoformating for config
 --lua vim.lsp.buf.format()
 require('packer').startup(function(use)
@@ -55,8 +54,6 @@ require('packer').startup(function(use)
 	use 'ThePrimeagen/harpoon'             --Harpoon
 	use 'mechatroner/rainbow_csv'          --csv rainbow colors
 	use "henry-hsieh/riscv-asm-vim"        --riscv-asm syntax
-	--use 'SirVer/ultisnips'                 --snippets
-	--use 'akretion/vim-odoo-snippets'        --odoo snippets
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
@@ -120,26 +117,19 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
+vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
 
-package.path = package.path .. ";/home/talandar/workspace/work/odoo/?.lua"
--- Autoformat on save
-vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-require("indent_blankline").setup {
-	show_current_context = true,
-	show_current_context_start = true,
-}
-require('initial_setup') --local
-require('key_mappings')  --local
-capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-require('mason_config')  --local
+require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require("startup").setup({ theme = "talandar" }) -- put theme name here
+require('initial_setup')                         -- local
+require('key_mappings')                          -- local
+require('mason_config')                          -- local
 require('lsp_servers')                           -- local
 require('cmpsetup')                              -- local
-require('lsp_floating_window_border')            --local
+require('lsp_floating_window_border')            -- local
 require('treesitter_config')                     -- local
 require('tokyonightsetup')                       -- local
 require('discord_presence')                      -- local
-require('format_xml')
+require('format_xml')                            -- local

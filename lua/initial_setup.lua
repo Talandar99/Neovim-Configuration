@@ -1,3 +1,6 @@
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.clipboard = 'unnamedplus'
@@ -17,10 +20,8 @@ vim.opt.swapfile = false
 vim.opt.hlsearch = false
 vim.opt.smartcase = true
 vim.opt.incsearch = true
-vim.opt.tabstop = 4
 vim.opt.softtabstop = 0
 vim.opt.expandtab = false
-vim.opt.shiftwidth = 4
 vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
@@ -35,7 +36,6 @@ vim.g.signify_sign_change = '~'
 vim.g.signify_disable_by_default = 1
 vim.g.signify_sign_show_count = 0
 vim.g.signify_sign_show_text = 1
-
 vim.o.compatible = false
 vim.cmd('filetype plugin on')
 vim.g.lightline = {colorscheme = 'tokyonight'}

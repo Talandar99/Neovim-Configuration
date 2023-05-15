@@ -11,7 +11,7 @@ require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'    -- Package manager
 	use 'tpope/vim-surround'        --surround
 	use 'jiangmiao/auto-pairs'      --Auto Pairs
-	use 'matze/vim-move'            -- lines movement
+	use 'matze/vim-move'            --lines movement
 	use 'chrisbra/Colorizer'        --Colors highlight
 	use 'andweeb/presence.nvim'     --Discord pressence
 	use 'potamides/pantran.nvim'    --Translation in fly
@@ -32,25 +32,23 @@ require('packer').startup(function(use)
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip' --vsnip
+	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
-	use 'bash-lsp/bash-language-server' --Bash
 	use 'Neevash/awesome-flutter-snippets' --Dart/Flutter
-	use 'dart-lang/dart-vim-plugin'
 	use 'akinsho/flutter-tools.nvim'
-	use 'mhinz/vim-mix-format'  --Elixir
-	use 'simrat39/rust-tools.nvim' --Rust
+	use 'dart-lang/dart-vim-plugin'
+	use 'mhinz/vim-mix-format'             --Elixir
+	use 'simrat39/rust-tools.nvim'         --Rust
 	use 'rust-lang/rust.vim'
-	use 'mhinz/vim-signify'     --Signify
-	use 'tpope/vim-fugitive'    --fugitive
-	use 'tpope/vim-rhubarb'
-	use 'junegunn/gv.vim'
+	use 'mhinz/vim-signify'                --Signify
+	use 'tpope/vim-fugitive'               --fugitive
 	use 'idanarye/vim-merginal'            --Branch management
 	use 'sindrets/diffview.nvim'           --Solving merge conflicts
 	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
 	use 'ThePrimeagen/harpoon'             --Harpoon
+	use 'ThePrimeagen/vim-be-good'         --Vim Be good
 	use 'mechatroner/rainbow_csv'          --csv rainbow colors
 	use "henry-hsieh/riscv-asm-vim"        --riscv-asm syntax
 	use({

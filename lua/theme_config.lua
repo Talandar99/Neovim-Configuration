@@ -1,3 +1,4 @@
+
 require("tokyonight").setup({
   style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   transparent = true, -- Enable this to disable setting the background color
@@ -21,7 +22,10 @@ require("tokyonight").setup({
 })
 require('lualine').setup( { options = {
 	theme = 'tokyonight',
-  }})
+}})
 vim.cmd 'colorscheme tokyonight'
+
+
+
 vim.cmd 'hi LineNr guifg=#9aa5ce'
 vim.cmd 'hi CursorLineNr guifg=#ff9e64'

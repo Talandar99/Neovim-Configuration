@@ -7,16 +7,23 @@ vim.keymap.set('n', '<leader>c', "<cmd>ColorToggle<CR>", { desc = 'toggle colori
 vim.keymap.set('n', '<leader>q', "<cmd>q<CR>", { desc = 'quit' })
 vim.keymap.set('n', '<leader>wq', "<cmd>bufdo wq!<CR>", { desc = 'write everything and quit' })
 vim.keymap.set('n', '<leader>aa', "<cmd>wa!<CR>", { desc = 'write' })
+--harpoon
 local harpoon_mark = require('harpoon.mark')
 local harpoon_ui = require('harpoon.ui')
 vim.keymap.set('n', '<A-o>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
 vim.keymap.set('n', '<A-i>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
-
+vim.keymap.set('n', '1', function() harpoon_ui.nav_file(1) end, {desc = 'harpoon go to 1st mark'})
+vim.keymap.set('n', '2', function() harpoon_ui.nav_file(2) end, {desc = 'harpoon go to 2nd mark'})
+vim.keymap.set('n', '3', function() harpoon_ui.nav_file(3) end, {desc = 'harpoon go to 3th mark'})
+vim.keymap.set('n', '4', function() harpoon_ui.nav_file(4) end, {desc = 'harpoon go to 4th mark'})
+vim.keymap.set('n', '5', function() harpoon_ui.nav_file(5) end, {desc = 'harpoon go to 5th mark'})
+vim.keymap.set('n', '6', function() harpoon_ui.nav_file(6) end, {desc = 'harpoon go to 6th mark'})
+vim.keymap.set('n', '7', function() harpoon_ui.nav_file(7) end, {desc = 'harpoon go to 7th mark'})
+vim.keymap.set('n', '8', function() harpoon_ui.nav_file(8) end, {desc = 'harpoon go to 8th mark'})
+vim.keymap.set('n', '9', function() harpoon_ui.nav_file(9) end, {desc = 'harpoon go to 9th mark'})
 --signify
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
-
-
 
 vim.cmd([[
 "-- TOGGLES --
@@ -34,15 +41,6 @@ nnoremap <C-c> :Telescope find_files<CR>
 nnoremap <C-s> :Telescope buffers<CR>
 nnoremap <C-z> :Telescope file_browser<CR>
 
-"Harpoon
-nnoremap <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
-nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
-nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
-nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<CR>
 
 "split jumping
 nnoremap <leader>h <C-w>h
@@ -118,6 +116,7 @@ vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")
 vim.keymap.set({"t"}, "<leader>q", "<cmd>Lspsaga term_toggle<CR>")
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>',{desc = 'enter command mode in termianl'})
+
 --debuging
 vim.keymap.set("n", '<leader>b', function() require('dap').toggle_breakpoint() end)
 vim.keymap.set("n", '<F10>', function() require('dap').continue() end)

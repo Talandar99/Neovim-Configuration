@@ -199,6 +199,8 @@ require('lspconfig').pylsp.setup {
 require('lspconfig').elixirls.setup {
 	--remember to install hex package manager with
 	--mix local.hex
+	--chmod +x language_server.sh 
+	--also helps
 	capabilities = capabilities,
 	cmd = { elixirls_path },
 	settings = {

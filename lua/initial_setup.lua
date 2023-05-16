@@ -38,7 +38,6 @@ vim.g.signify_sign_show_count = 0
 vim.g.signify_sign_show_text = 1
 vim.o.compatible = false
 vim.cmd('filetype plugin on')
-vim.g.lightline = {colorscheme = 'tokyonight'}
 vim.g.LanguageClient_serverCommands = {
   sh = {'bash-language-server', 'start'}
 }

@@ -130,6 +130,6 @@ require('lsp_servers')                           -- local
 require('cmpsetup')                              -- local
 require('lsp_floating_window_border')            -- local
 require('treesitter_config')                     -- local
-require('tokyonightsetup')                       -- local
+require('theme_config')                          -- local
 require('discord_presence')                      -- local
 require('format_xml')                            -- local

@@ -10,8 +10,8 @@ vim.keymap.set('n', '<leader>aa', "<cmd>wa!<CR>", { desc = 'write' })
 --harpoon
 local harpoon_mark = require('harpoon.mark')
 local harpoon_ui = require('harpoon.ui')
-vim.keymap.set('n', '<A-o>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
-vim.keymap.set('n', '<A-i>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
+vim.keymap.set('n', '<A-r>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
+vim.keymap.set('n', '<A-e>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
 vim.keymap.set('n', '1', function() harpoon_ui.nav_file(1) end, {desc = 'harpoon go to 1st mark'})
 vim.keymap.set('n', '2', function() harpoon_ui.nav_file(2) end, {desc = 'harpoon go to 2nd mark'})
 vim.keymap.set('n', '3', function() harpoon_ui.nav_file(3) end, {desc = 'harpoon go to 3th mark'})
@@ -24,65 +24,63 @@ vim.keymap.set('n', '9', function() harpoon_ui.nav_file(9) end, {desc = 'harpoon
 --signify
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
+-- TOGGLES --
+-- Git Merginal
+vim.keymap.set('n', '<leader>tm', ':lua require("merginal").toggle()<CR>', { noremap = true })
+
+-- harpoon
+vim.keymap.set('n', '<leader>tp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<CR>', { noremap = true })
+
+-- open telescope (close have same binding)
+vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
+vim.keymap.set('n', '<C-s>', ':Telescope buffers<CR>', { noremap = true })
+vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
+
+-- split jumping
+vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { noremap = true })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { noremap = true })
+
+-- moving lines
+vim.keymap.set('n', '<A-j>', ':lua require("move").move_line(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':lua require("move").move_line(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ':lua require("move").move_block(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ':lua require("move").move_block(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-l>', ':lua require("move").move_hchar(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-h>', ':lua require("move").move_hchar(-1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-l>', ':lua require("move").move_hblock(1)<CR>', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-h>', ':lua require("move").move_hblock(-1)<CR>', { noremap = true, silent = true })
+
+-- Git fugitive
+vim.keymap.set('n', 'gps', ':Git push<CR>', { noremap = true })
+vim.keymap.set('n', 'gpl', ':Git pull<CR>', { noremap = true })
+vim.keymap.set('n', 'gfc', ':Git fetch<CR>', { noremap = true })
+vim.keymap.set('n', 'grh', ':Git reset --hard<CR>', { noremap = true })
+vim.keymap.set('n', 'gbl', ':Git blame<CR>', { noremap = true })
+
+-- automatically center after C-d C-u
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
+
+-- Don't use arrows
+vim.keymap.set('n', '<Left>', ':echo "embrace vim"<CR>', { noremap = true })
+vim.keymap.set('n', '<Right>', ':echo "you are weak"<CR>', { noremap = true })
+vim.keymap.set('n', '<Up>', ':echo "never slow down"<CR>', { noremap = true })
+vim.keymap.set('n', '<Down>', ':echo "you dont need this..."<CR>', { noremap = true })
 
 vim.cmd([[
-"-- TOGGLES --
-"Git Merginal
-nmap <leader>tm :MerginalToggle<CR>
-"harpoon
-"Trigger Translation
-nnoremap <Leader>tp <cmd>Pantran source=pl engine=google<CR> 
-nnoremap <Leader>tu <cmd>Pantran source=en target=pl engine=google<CR> 
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
-
-"open telescope (close have same binding)
-nnoremap <C-c> :Telescope find_files<CR>
-nnoremap <C-s> :Telescope buffers<CR>
-nnoremap <C-z> :Telescope file_browser<CR>
-
-
-"split jumping
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-
-"moving lines
-nnoremap <silent> <A-j> :MoveLine(1)<CR>
-nnoremap <silent> <A-k> :MoveLine(-1)<CR>
-vnoremap <silent> <A-j> :MoveBlock(1)<CR>
-vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
-nnoremap <silent> <A-l> :MoveHChar(1)<CR>
-nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
-vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
-vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
-
+"open git
+nmap gq <cmd>0G<CR>
 "Jump though hunks
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
-
-"Git fugitive
-nmap gq <cmd>0G<CR>
-nmap gps :Git push
-nmap gpl :Git pull
-nmap gfc :Git fetch
-nmap grh :Git reset --hard
-nmap gbl :Git blame<CR>
-
 "Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
-
-"automaticly center after C-d C-u
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-
-"Dont use arrows
-map <Left> <Esc>:echo 'embrace vim'<CR>
-map <Right> <Esc>:echo 'you are weak'<CR>
-map <Up> <Esc>:echo 'never slow down'<CR>
-map <Down> <Esc>:echo 'you dont need this...'<CR>
 ]])
 
 --Lspsaga

@@ -26,6 +26,7 @@ require('mason-tool-installer').setup {
 		{ "rust-analyzer",               auto_update = true },
 		{ "html-lsp",                    auto_update = true },
 		{ "elixir-ls",                   auto_update = true },
+		{ "gopls",    	                 auto_update = true },
 	},
 	auto_update = true,
 	run_on_start = true,

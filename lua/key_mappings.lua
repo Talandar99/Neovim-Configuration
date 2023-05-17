@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<leader>M', "<cmd>Mason<CR>" , { desc = 'run Mason' })
 vim.keymap.set('n', '<leader>E', vim.cmd.Ex , { desc = 'native filesearch' })
-vim.keymap.set('n', '<leader>c', "<cmd>ColorToggle<CR>", { desc = 'toggle colorizer' })
+vim.keymap.set('n', '<leader>ct', "<cmd>ColorToggle<CR>", { desc = 'toggle colorizer' })
 --quit
 vim.keymap.set('n', '<leader>q', "<cmd>q<CR>", { desc = 'quit' })
 vim.keymap.set('n', '<leader>wq', "<cmd>bufdo wq!<CR>", { desc = 'write everything and quit' })
@@ -10,8 +10,8 @@ vim.keymap.set('n', '<leader>aa', "<cmd>wa!<CR>", { desc = 'write' })
 --harpoon
 local harpoon_mark = require('harpoon.mark')
 local harpoon_ui = require('harpoon.ui')
-vim.keymap.set('n', '<A-r>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
-vim.keymap.set('n', '<A-e>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
+vim.keymap.set('n', '<A-e>', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
+vim.keymap.set('n', '<A-w>', harpoon_mark.add_file, { desc = 'open harpoon menu' })
 vim.keymap.set('n', '1', function() harpoon_ui.nav_file(1) end, {desc = 'harpoon go to 1st mark'})
 vim.keymap.set('n', '2', function() harpoon_ui.nav_file(2) end, {desc = 'harpoon go to 2nd mark'})
 vim.keymap.set('n', '3', function() harpoon_ui.nav_file(3) end, {desc = 'harpoon go to 3th mark'})
@@ -21,16 +21,16 @@ vim.keymap.set('n', '6', function() harpoon_ui.nav_file(6) end, {desc = 'harpoon
 vim.keymap.set('n', '7', function() harpoon_ui.nav_file(7) end, {desc = 'harpoon go to 7th mark'})
 vim.keymap.set('n', '8', function() harpoon_ui.nav_file(8) end, {desc = 'harpoon go to 8th mark'})
 vim.keymap.set('n', '9', function() harpoon_ui.nav_file(9) end, {desc = 'harpoon go to 9th mark'})
+vim.keymap.set('n', '<leader>tp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<CR>', { noremap = true })
+
 --signify
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
 -- TOGGLES --
 -- Git Merginal
-vim.keymap.set('n', '<leader>tm', ':lua require("merginal").toggle()<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>tm', '<cmd>MerginalToggle<CR>', { noremap = true })
 
--- harpoon
-vim.keymap.set('n', '<leader>tp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<CR>', { noremap = true })
 
 -- open telescope (close have same binding)
 vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
@@ -53,13 +53,6 @@ vim.keymap.set('n', '<A-h>', ':lua require("move").move_hchar(-1)<CR>', { norema
 vim.keymap.set('v', '<A-l>', ':lua require("move").move_hblock(1)<CR>', { noremap = true, silent = true })
 vim.keymap.set('v', '<A-h>', ':lua require("move").move_hblock(-1)<CR>', { noremap = true, silent = true })
 
--- Git fugitive
-vim.keymap.set('n', 'gps', ':Git push<CR>', { noremap = true })
-vim.keymap.set('n', 'gpl', ':Git pull<CR>', { noremap = true })
-vim.keymap.set('n', 'gfc', ':Git fetch<CR>', { noremap = true })
-vim.keymap.set('n', 'grh', ':Git reset --hard<CR>', { noremap = true })
-vim.keymap.set('n', 'gbl', ':Git blame<CR>', { noremap = true })
-
 -- automatically center after C-d C-u
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
@@ -70,9 +63,17 @@ vim.keymap.set('n', '<Right>', ':echo "you are weak"<CR>', { noremap = true })
 vim.keymap.set('n', '<Up>', ':echo "never slow down"<CR>', { noremap = true })
 vim.keymap.set('n', '<Down>', ':echo "you dont need this..."<CR>', { noremap = true })
 
+
 vim.cmd([[
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
+"Git fugitive
+nmap gq <cmd>0G<CR>
+nmap gps :Git push
+nmap gpl :Git pull
+nmap gfc :Git fetch
+nmap grh :Git reset --hard
+nmap gbl :Git blame<CR>
 "open git
 nmap gq <cmd>0G<CR>
 "Jump though hunks

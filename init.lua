@@ -116,9 +116,9 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
+
+
 vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
-
-
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
@@ -130,6 +130,6 @@ require('lsp_servers')                           -- local
 require('cmpsetup')                              -- local
 require('lsp_floating_window_border')            -- local
 require('treesitter_config')                     -- local
-require('theme_config') 						 -- local
+require('theme_config')                          -- local
 require('discord_presence')                      -- local
 require('format_xml')                            -- local

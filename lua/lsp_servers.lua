@@ -178,7 +178,6 @@ require("flutter-tools").setup {
 		},
 	}
 }
-require('lspconfig').html.setup { capabilities = capabilities }
 require('lspconfig').lua_ls.setup { capabilities = capabilities }
 require('lspconfig').clangd.setup { capabilities = capabilities }
 require('lspconfig').bashls.setup { capabilities = capabilities }
@@ -196,7 +195,6 @@ require('lspconfig').pylsp.setup {
 		}
 	}
 }
-
 require('lspconfig').elixirls.setup {
 	--remember to install hex package manager with
 	--mix local.hex
@@ -212,7 +210,6 @@ require('lspconfig').elixirls.setup {
 	}
 }
 require('lspconfig').phpactor.setup { capabilities = capabilities }
-require('lspconfig').tailwindcss.setup { capabilities = capabilities }
 require('lspconfig').intelephense.setup({
 	capabilities = capabilities,
 	settings = {
@@ -243,3 +240,8 @@ require('lspconfig').intelephense.setup({
 		},
 	}
 })
+
+-- web
+require('lspconfig').html.setup { capabilities = capabilities }
+require('lspconfig').tailwindcss.setup { capabilities = capabilities }
+require('lspconfig').tsserver.setup { capabilities = capabilities }

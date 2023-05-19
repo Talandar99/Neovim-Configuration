@@ -14,7 +14,6 @@ require('packer').startup(function(use)
 	use 'matze/vim-move'            --lines movement
 	use 'chrisbra/Colorizer'        --Colors highlight
 	use 'andweeb/presence.nvim'     --Discord pressence
-	use 'potamides/pantran.nvim'    --Translation in fly
 	use 'nvim-lualine/lualine.nvim' --bottom bar
 	use 'folke/tokyonight.nvim'     --tokyonight theme
 	use 'kyazdani42/nvim-web-devicons' --icons in your statusline
@@ -56,47 +55,18 @@ require('packer').startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
 	use 'nvim-telescope/telescope-file-browser.nvim'
-	use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } } -- Telescope
+	use { 'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		requires = { 'nvim-lua/plenary.nvim' } }           -- Telescope
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-	use { 'nvim-treesitter/nvim-treesitter', run = function()                                      -- Highlight, edit, and navigate code
+	use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
 		pcall(require('nvim-treesitter.install').update { with_sync = true })
 	end, }
 	use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter', } -- Additional text objects via treesitter
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		config = function()
-			require("lspsaga").setup({
-				ui = {
-					theme = "round", -- Currently, only the round theme exists
-					title = true, -- This option only works in Neovim 0.9
-					border = "rounded", -- Border type can be single, double, rounded, solid, shadow.
-					winblend = 0,
-					expand = "",
-					collapse = "",
-					preview = " ",
-					code_action = "",
-					diagnostic = "🐞",
-					incoming = " ",
-					outgoing = " ",
-					colors = {
-						normal_bg = "",
-						title_bg = "#9ece6a",
-						red = "#f7768e",
-						magenta = "#bb9af7",
-						orange = "#ff9e64",
-						yellow = "#e0af68",
-						green = "#9ece6a",
-						cyan = "#2ac3de",
-						blue = "#7aa2f7",
-						purple = "#bb9af7",
-						white = "#cfc9c2",
-						black = "#414868",
-					},
-					kind = {},
-				},
-			})
-		end,
+		config = function() require("lspsaga_setup") end, --local
 		requires = { { "nvim-tree/nvim-web-devicons" } }
 	})
 	if is_bootstrap then require('packer').sync() end
@@ -117,12 +87,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	pattern = vim.fn.expand '$MYVIMRC',
 })
 
-
 vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
-require("startup").setup({ theme = "talandar" }) -- put theme name here
+require('startup').setup({ theme = "talandar" }) -- put theme name here
 require('initial_setup')                         -- local
 require('key_mappings')                          -- local
 require('mason_config')                          -- local

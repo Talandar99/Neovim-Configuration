@@ -126,10 +126,11 @@ require('rust-tools').setup({
 		},
 	},
 	server = {
-		standalone = false,
+		standalone = true,
 	}, -- rust-analyzer options
 	dap = { adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path) },
 })
+
 require("flutter-tools").setup {
 	capabilities = capabilities,
 	ui = {
@@ -172,7 +173,11 @@ require("flutter-tools").setup {
 		settings = {
 			showTodos = true,
 			completeFunctionCalls = true,
-			analysisExcludedFolders = { "<path-to-flutter-sdk-packages>" },
+			analysisExcludedFolders = {
+       	 		vim.fn.expand '$HOME/.pub-cache',
+        		-- vim.fn.expand '$HOME/fvm/versions', -- flutter-tools should automatically exclude your SDK.
+				"<path-to-flutter-sdk-packages>"
+			},
 			renameFilesWithClasses = "prompt", -- "always"
 			enableSnippets = true,
 		},
@@ -242,6 +247,6 @@ require('lspconfig').intelephense.setup({
 })
 
 -- web
-require('lspconfig').html.setup { capabilities = capabilities }
+--
 require('lspconfig').tailwindcss.setup { capabilities = capabilities }
 require('lspconfig').tsserver.setup { capabilities = capabilities }

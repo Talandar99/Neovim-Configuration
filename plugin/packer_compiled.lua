@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["dart-vim-plugin"] = {
-    loaded = true,
-    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
-    url = "https://github.com/dart-lang/dart-vim-plugin"
-  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/diffview.nvim",

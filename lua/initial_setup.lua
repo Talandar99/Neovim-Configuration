@@ -1,5 +1,6 @@
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
@@ -27,8 +28,6 @@ vim.opt.updatetime = 50
 vim.opt.termguicolors = true
 vim.g.rust_cargo_check_all_targets = 1
 vim.g.rustfmt_autosave = 1
-vim.g.dart_format_on_save = 1
-vim.g.dartfmt_options = {'--fix', '--line-length 120'}
 vim.g.signify_sign_add = '+'
 vim.g.signify_sign_delete = '_'
 vim.g.signify_sign_delete_first_line = '‾'
@@ -38,9 +37,11 @@ vim.g.signify_sign_show_count = 0
 vim.g.signify_sign_show_text = 1
 vim.o.compatible = false
 vim.cmd('filetype plugin on')
+
 vim.g.LanguageClient_serverCommands = {
   sh = {'bash-language-server', 'start'}
 }
+
 vim.g.mix_format_on_save = 1
 vim.g.mix_format_silent_errors = 1
 

@@ -35,9 +35,8 @@ require('packer').startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
-	use 'Neevash/awesome-flutter-snippets' --Dart/Flutter
 	use 'akinsho/flutter-tools.nvim'
-	use 'dart-lang/dart-vim-plugin'
+	use 'Neevash/awesome-flutter-snippets' --Dart/Flutter
 	use 'mhinz/vim-mix-format'             --Elixir
 	use 'simrat39/rust-tools.nvim'         --Rust
 	use 'rust-lang/rust.vim'
@@ -86,7 +85,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
-
+	
 vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"

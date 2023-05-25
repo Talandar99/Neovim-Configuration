@@ -232,11 +232,6 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/rainbow_csv",
     url = "https://github.com/mechatroner/rainbow_csv"
   },
-  ["riscv-asm-vim"] = {
-    loaded = true,
-    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/riscv-asm-vim",
-    url = "https://github.com/henry-hsieh/riscv-asm-vim"
-  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",

@@ -48,7 +48,6 @@ require('packer').startup(function(use)
 	use 'ThePrimeagen/harpoon'             --Harpoon
 	use 'ThePrimeagen/vim-be-good'         --Vim Be good
 	use 'mechatroner/rainbow_csv'          --csv rainbow colors
-	use "henry-hsieh/riscv-asm-vim"        --riscv-asm syntax
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
@@ -85,7 +84,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
-	
+
 vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"

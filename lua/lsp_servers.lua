@@ -1,9 +1,13 @@
 capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 require("mason-nvim-dap").setup({
 	automatic_setup = true,
 	ensure_installed = { "python", "rust" }
 })
+--autoformat
+require("lsp-format").setup {}
+local on_attach = function(client)
+	require("lsp-format").on_attach(client)
+end
 --paths
 local mason_registry = require("mason-registry")
 local elixirls_path = mason_registry.get_package("elixir-ls"):get_install_path() .. "/language_server.sh"
@@ -11,8 +15,7 @@ local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() 
 local debugpy_path = mason_registry.get_package("debugpy"):get_install_path() .. "/venv/bin/python"
 local codelldb_path = codelldb_root .. "adapter/codelldb"
 local liblldb_path = codelldb_root .. "lldb/lib/liblldb.so"
-
---dap rust
+--dap setup
 require("dapui").setup()
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -24,12 +27,13 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
-
+--dap rust
 dap.adapters.rust = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
 --dap python
 require('dap-python').setup(debugpy_path)
 -- rust lsp
 require('rust-tools').setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	tools = {
 		-- rust-tools options
@@ -132,6 +136,7 @@ require('rust-tools').setup({
 })
 
 require("flutter-tools").setup {
+	on_attach = on_attach,
 	capabilities = capabilities,
 	ui = {
 		border = "rounded",
@@ -174,8 +179,8 @@ require("flutter-tools").setup {
 			showTodos = true,
 			completeFunctionCalls = true,
 			analysisExcludedFolders = {
-       	 		vim.fn.expand '$HOME/.pub-cache',
-        		-- vim.fn.expand '$HOME/fvm/versions', -- flutter-tools should automatically exclude your SDK.
+				vim.fn.expand '$HOME/.pub-cache',
+				-- vim.fn.expand '$HOME/fvm/versions', -- flutter-tools should automatically exclude your SDK.
 				"<path-to-flutter-sdk-packages>"
 			},
 			renameFilesWithClasses = "prompt", -- "always"
@@ -183,11 +188,21 @@ require("flutter-tools").setup {
 		},
 	}
 }
-require('lspconfig').lua_ls.setup { capabilities = capabilities }
+require('lspconfig').lua_ls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 require('lspconfig').clangd.setup { capabilities = capabilities }
-require('lspconfig').bashls.setup { capabilities = capabilities }
-require('lspconfig').gopls.setup { capabilities = capabilities }
+require('lspconfig').bashls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+require('lspconfig').gopls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 require('lspconfig').pylsp.setup {
+	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		pylsp = {
@@ -203,8 +218,9 @@ require('lspconfig').pylsp.setup {
 require('lspconfig').elixirls.setup {
 	--remember to install hex package manager with
 	--mix local.hex
-	--chmod +x language_server.sh 
+	--chmod +x language_server.sh
 	--also helps
+	on_attach = on_attach,
 	capabilities = capabilities,
 	cmd = { elixirls_path },
 	settings = {
@@ -214,8 +230,12 @@ require('lspconfig').elixirls.setup {
 		}
 	}
 }
-require('lspconfig').phpactor.setup { capabilities = capabilities }
+require('lspconfig').phpactor.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
 require('lspconfig').intelephense.setup({
+	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {
 		intelephense = {
@@ -248,6 +268,15 @@ require('lspconfig').intelephense.setup({
 
 -- web
 --
-require('lspconfig').elmls.setup{ capabilities = capabilities }
-require('lspconfig').tailwindcss.setup { capabilities = capabilities }
-require('lspconfig').tsserver.setup { capabilities = capabilities }
+require('lspconfig').elmls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+require('lspconfig').tailwindcss.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+require('lspconfig').tsserver.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
+}

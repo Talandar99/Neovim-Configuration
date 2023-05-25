@@ -23,6 +23,7 @@ require('packer').startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig", }
+	use "lukas-reineke/lsp-format.nvim"
 	use {
 		'jay-babu/mason-nvim-dap.nvim',
 		'mfussenegger/nvim-dap-python',
@@ -84,8 +85,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	group = packer_group,
 	pattern = vim.fn.expand '$MYVIMRC',
 })
-
-vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]] -- Autoformat on save
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"

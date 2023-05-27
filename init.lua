@@ -88,14 +88,14 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
-require('startup').setup({ theme = "talandar" }) -- put theme name here
-require('initial_setup')                         -- local
-require('key_mappings')                          -- local
-require('mason_config')                          -- local
-require('lsp_servers')                           -- local
-require('cmpsetup')                              -- local
-require('lsp_floating_window_border')            -- local
-require('treesitter_config')                     -- local
-require('theme_config')                          -- local
-require('discord_presence')                      -- local
-require('format_xml')                            -- local
+require('startup').setup({ theme = "default_theme" }) -- put theme name here
+require('initial_setup')                              -- local
+require('key_mappings')                               -- local
+require('mason_config')                               -- local
+require('lsp_servers')                                -- local
+require('cmpsetup')                                   -- local
+require('lsp_floating_window_border')                 -- local
+require('treesitter_config')                          -- local
+require('theme_config')                               -- local
+require('discord_presence')                           -- local
+require('format_xml')                                 -- local

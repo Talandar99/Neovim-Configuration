@@ -1,8 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.keymap.set('n', '<leader>M', "<cmd>Mason<CR>" , { desc = 'run Mason' })
-vim.keymap.set('n', '<leader>E', vim.cmd.Ex , { desc = 'native filesearch' })
+vim.keymap.set('n', '<leader>M', "<cmd>Mason<CR>", { desc = 'run Mason' })
+vim.keymap.set('n', '<leader>E', vim.cmd.Ex, { desc = 'native filesearch' })
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 vim.keymap.set('n', '<leader>ct', "<cmd>ColorToggle<CR>", { desc = 'toggle colorizer' })
 --quit
 vim.keymap.set('n', '<leader>q', "<cmd>q<CR>", { desc = 'quit' })
@@ -13,15 +14,15 @@ local harpoon_mark = require('harpoon.mark')
 local harpoon_ui = require('harpoon.ui')
 vim.keymap.set('n', '<A-=>', harpoon_mark.add_file, { desc = 'add file to harpoon menu' })
 vim.keymap.set('n', '<A-->', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
-vim.keymap.set('n', '<A-1>', function() harpoon_ui.nav_file(1) end, {desc = 'harpoon go to 1st mark'})
-vim.keymap.set('n', '<A-2>', function() harpoon_ui.nav_file(2) end, {desc = 'harpoon go to 2nd mark'})
-vim.keymap.set('n', '<A-3>', function() harpoon_ui.nav_file(3) end, {desc = 'harpoon go to 3th mark'})
-vim.keymap.set('n', '<A-4>', function() harpoon_ui.nav_file(4) end, {desc = 'harpoon go to 4th mark'})
-vim.keymap.set('n', '<A-5>', function() harpoon_ui.nav_file(5) end, {desc = 'harpoon go to 5th mark'})
-vim.keymap.set('n', '<A-6>', function() harpoon_ui.nav_file(6) end, {desc = 'harpoon go to 6th mark'})
-vim.keymap.set('n', '<A-7>', function() harpoon_ui.nav_file(7) end, {desc = 'harpoon go to 7th mark'})
-vim.keymap.set('n', '<A-8>', function() harpoon_ui.nav_file(8) end, {desc = 'harpoon go to 8th mark'})
-vim.keymap.set('n', '<A-9>', function() harpoon_ui.nav_file(9) end, {desc = 'harpoon go to 9th mark'})
+vim.keymap.set('n', '<A-1>', function() harpoon_ui.nav_file(1) end, { desc = 'harpoon go to 1st mark' })
+vim.keymap.set('n', '<A-2>', function() harpoon_ui.nav_file(2) end, { desc = 'harpoon go to 2nd mark' })
+vim.keymap.set('n', '<A-3>', function() harpoon_ui.nav_file(3) end, { desc = 'harpoon go to 3th mark' })
+vim.keymap.set('n', '<A-4>', function() harpoon_ui.nav_file(4) end, { desc = 'harpoon go to 4th mark' })
+vim.keymap.set('n', '<A-5>', function() harpoon_ui.nav_file(5) end, { desc = 'harpoon go to 5th mark' })
+vim.keymap.set('n', '<A-6>', function() harpoon_ui.nav_file(6) end, { desc = 'harpoon go to 6th mark' })
+vim.keymap.set('n', '<A-7>', function() harpoon_ui.nav_file(7) end, { desc = 'harpoon go to 7th mark' })
+vim.keymap.set('n', '<A-8>', function() harpoon_ui.nav_file(8) end, { desc = 'harpoon go to 8th mark' })
+vim.keymap.set('n', '<A-9>', function() harpoon_ui.nav_file(9) end, { desc = 'harpoon go to 9th mark' })
 vim.keymap.set('n', '<leader>tp', ':lua require("harpoon.term").gotoTerminal(1)<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<CR>', { noremap = true })
 --signify
@@ -30,9 +31,9 @@ vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle hig
 -- Git Merginal
 vim.keymap.set('n', '<leader>tm', '<cmd>MerginalToggle<CR>', { noremap = true })
 -- open telescope (close have same binding)
+--vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
 vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
 vim.keymap.set('n', '<C-s>', ':Telescope buffers<CR>', { noremap = true })
-vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
 -- split jumping
 vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<leader>j', '<C-w>j', { noremap = true })
@@ -77,7 +78,7 @@ smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j
 ]])
 --Lspsaga
 vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 vim.keymap.set("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 --keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>") --rename in project , Require testing
 vim.keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { silent = true })
@@ -94,17 +95,17 @@ vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { 
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 vim.keymap.set("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 vim.keymap.set("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
-vim.keymap.set("n","<leader>o", "<cmd>Lspsaga outline<CR>")
+vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 --terminal
-vim.keymap.set({"n", "t"}, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")
-vim.keymap.set({"t"}, "<leader>q", "<cmd>Lspsaga term_toggle<CR>")
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>',{desc = 'enter command mode in termianl'})
+vim.keymap.set({ "n", "t" }, "<leader>T", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set({ "t" }, "<leader>q", "<cmd>Lspsaga term_toggle<CR>")
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'enter command mode in termianl' })
 --debuging
 vim.keymap.set("n", '<leader>b', function() require('dap').toggle_breakpoint() end)
 vim.keymap.set("n", '<F10>', function() require('dap').continue() end)
@@ -112,15 +113,15 @@ vim.keymap.set("n", '<F11>', function() require('dap').step_into() end)
 vim.keymap.set("n", '<F12>', function() require('dap').step_over() end)
 --automaticly add debuger shortkay if file is rust file
 vim.api.nvim_create_autocmd("BufRead", {
-  pattern = "*.rs",
-  callback = function()
+	pattern = "*.rs",
+	callback = function()
 		vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
-  end,
+	end,
 })
 --automaticly add debuger shortkay if file is python file
 vim.api.nvim_create_autocmd("BufRead", {
-  pattern = "*.py",
-  callback = function()
+	pattern = "*.py",
+	callback = function()
 		vim.keymap.set("n", '<F5>', function() require('dap').continue() end)
-  end,
+	end,
 })

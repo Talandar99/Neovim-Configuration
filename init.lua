@@ -47,11 +47,11 @@ require('packer').startup(function(use)
 	use 'ThePrimeagen/harpoon'             --Harpoon
 	use 'ThePrimeagen/vim-be-good'         --Vim Be good
 	use 'mechatroner/rainbow_csv'          --csv rainbow colors
+	use 'stevearc/oil.nvim'                --oil file explorer
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
 	})
-	use 'nvim-telescope/telescope-file-browser.nvim'
 	use { 'nvim-telescope/telescope.nvim',
 		branch = '0.1.x',
 		requires = { 'nvim-lua/plenary.nvim' } }           -- Telescope
@@ -84,7 +84,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	pattern = vim.fn.expand '$MYVIMRC',
 })
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
-require("telescope").load_extension "file_browser"
 require("telescope").load_extension "harpoon"
 require('startup').setup({ theme = "default_theme" }) -- put theme name here
 require('initial_setup')                              -- local
@@ -97,3 +96,4 @@ require('treesitter_config')                          -- local
 require('theme_config')                               -- local
 require('discord_presence')                           -- local
 require('format_xml')                                 -- local
+require('oil_config')                                 -- local

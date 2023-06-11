@@ -217,6 +217,11 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["oil.nvim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/oil.nvim",
+    url = "https://github.com/stevearc/oil.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -251,11 +256,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/startup.nvim",
     url = "https://github.com/startup-nvim/startup.nvim"
-  },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     cond = { true },

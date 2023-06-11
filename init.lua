@@ -6,7 +6,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 	vim.cmd [[packadd packer.nvim]]
 end
 require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'    -- Package manager
+	use 'wbthomason/packer.nvim'    --Package manager
 	use 'tpope/vim-surround'        --surround
 	use 'jiangmiao/auto-pairs'      --Auto Pairs
 	use 'matze/vim-move'            --lines movement
@@ -16,7 +16,7 @@ require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'     --tokyonight theme
 	use 'kyazdani42/nvim-web-devicons' --icons in your statusline
 	use 'startup-nvim/startup.nvim' --startup
-	use {                           -- LSP + MASON
+	use {                           --LSP + MASON
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -30,7 +30,7 @@ require('packer').startup(function(use)
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/cmp-vsnip' --vsnip
+	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
@@ -43,9 +43,8 @@ require('packer').startup(function(use)
 	use 'tpope/vim-fugitive'               --fugitive
 	use 'idanarye/vim-merginal'            --Branch management
 	use 'sindrets/diffview.nvim'           --Solving merge conflicts
-	use "lukas-reineke/indent-blankline.nvim" -- indent blankline
+	use "lukas-reineke/indent-blankline.nvim" --Indent blankline guides
 	use 'ThePrimeagen/harpoon'             --Harpoon
-	use 'ThePrimeagen/vim-be-good'         --Vim Be good
 	use 'mechatroner/rainbow_csv'          --csv rainbow colors
 	use 'stevearc/oil.nvim'                --oil file explorer
 	use({
@@ -85,15 +84,15 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
 require("telescope").load_extension "harpoon"
-require('startup').setup({ theme = "default_theme" }) -- put theme name here
-require('initial_setup')                              -- local
-require('key_mappings')                               -- local
-require('mason_config')                               -- local
-require('lsp_servers')                                -- local
-require('cmpsetup')                                   -- local
-require('lsp_floating_window_border')                 -- local
-require('treesitter_config')                          -- local
-require('theme_config')                               -- local
-require('discord_presence')                           -- local
-require('format_xml')                                 -- local
-require('oil_config')                                 -- local
+require('startup').setup({ theme = "default_theme" })
+require('initial_setup')              -- local
+require('key_mappings')               -- local
+require('mason_config')               -- local
+require('lsp_servers')                -- local
+require('cmpsetup')                   -- local
+require('lsp_floating_window_border') -- local
+require('treesitter_config')          -- local
+require('theme_config')               -- local
+require('discord_presence')           -- local
+require('format_xml')                 -- local
+require('oil_config')                 -- local

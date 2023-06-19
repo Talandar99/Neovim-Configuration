@@ -1,11 +1,12 @@
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
+vim.opt.expandtab = true --no tabs only spaces
 
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.signcolumn = 'yes'
@@ -22,8 +23,7 @@ vim.opt.hlsearch = false
 vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.softtabstop = 0
-vim.opt.expandtab = false
-vim.opt.backspace = {'indent', 'eol', 'start'}
+vim.opt.backspace = { 'indent', 'eol', 'start' }
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
 vim.g.rust_cargo_check_all_targets = 1
@@ -38,15 +38,12 @@ vim.g.signify_sign_show_text = 1
 vim.o.compatible = false
 vim.cmd('filetype plugin on')
 
-vim.g.LanguageClient_serverCommands = {
-  sh = {'bash-language-server', 'start'}
-}
 
 vim.g.mix_format_on_save = 1
 vim.g.mix_format_silent_errors = 1
 
 vim.cmd([[
-set undodir=~/.nvim-data/backup
-set undofile
+    set undodir=~/.nvim-data/backup
+    set undofile
 ]]
 )

@@ -6,17 +6,17 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'    --Package manager
-    use 'tpope/vim-surround'        --surround
-    use 'jiangmiao/auto-pairs'      --Auto Pairs
-    use 'matze/vim-move'            --lines movement
-    use 'chrisbra/Colorizer'        --Colors highlight
-    use 'andweeb/presence.nvim'     --Discord pressence
-    use 'nvim-lualine/lualine.nvim' --bottom bar
-    use 'folke/tokyonight.nvim'     --tokyonight theme
+    use 'wbthomason/packer.nvim'       --Package manager
+    use 'tpope/vim-surround'           --surround
+    use 'jiangmiao/auto-pairs'         --Auto Pairs
+    use 'matze/vim-move'               --lines movement
+    use 'chrisbra/Colorizer'           --Colors highlight
+    use 'andweeb/presence.nvim'        --Discord pressence
+    use 'nvim-lualine/lualine.nvim'    --bottom bar
+    use 'folke/tokyonight.nvim'        --tokyonight theme
     use 'kyazdani42/nvim-web-devicons' --icons in your statusline
-    use 'startup-nvim/startup.nvim' --startup
-    use {                           --LSP + MASON
+    use 'startup-nvim/startup.nvim'    --startup
+    use {                              --LSP + MASON
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -35,25 +35,25 @@ require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
     use 'akinsho/flutter-tools.nvim'
-    use 'Neevash/awesome-flutter-snippets' --Dart/Flutter
-    use 'mhinz/vim-mix-format'             --Elixir
-    use 'simrat39/rust-tools.nvim'         --Rust
+    use 'Neevash/awesome-flutter-snippets'    --Dart/Flutter
+    use 'mhinz/vim-mix-format'                --Elixir
+    use 'simrat39/rust-tools.nvim'            --Rust
     use 'rust-lang/rust.vim'
-    use 'mhinz/vim-signify'                --Signify
-    use 'tpope/vim-fugitive'               --fugitive
-    use 'idanarye/vim-merginal'            --Branch management
-    use 'sindrets/diffview.nvim'           --Solving merge conflicts
+    use 'mhinz/vim-signify'                   --Signify
+    use 'tpope/vim-fugitive'                  --fugitive
+    use 'idanarye/vim-merginal'               --Branch management
+    use 'sindrets/diffview.nvim'              --Solving merge conflicts
     use "lukas-reineke/indent-blankline.nvim" --Indent blankline guides
-    use 'ThePrimeagen/harpoon'             --Harpoon
-    use 'mechatroner/rainbow_csv'          --csv rainbow colors
-    use 'stevearc/oil.nvim'                --oil file explorer
+    use 'ThePrimeagen/harpoon'                --Harpoon
+    use 'mechatroner/rainbow_csv'             --csv rainbow colors
+    use 'stevearc/oil.nvim'                   --oil file explorer
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
     use { 'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
-        requires = { 'nvim-lua/plenary.nvim' } }           -- Telescope
+        requires = { 'nvim-lua/plenary.nvim' } }              -- Telescope
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
     use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
         pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -83,8 +83,8 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = vim.fn.expand '$MYVIMRC',
 })
 require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
-require("telescope").load_extension "harpoon"
 require('startup').setup({ theme = "default_theme" })
+require('telescope').load_extension "harpoon"
 require('initial_setup')              -- local
 require('key_mappings')               -- local
 require('mason_config')               -- local

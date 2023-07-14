@@ -28,8 +28,6 @@ vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<
 --signify
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
--- Git Merginal
-vim.keymap.set('n', '<leader>tm', '<cmd>MerginalToggle<CR>', { noremap = true })
 -- open telescope (close have same binding)
 --vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
 vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
@@ -95,10 +93,10 @@ vim.keymap.set("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { 
 vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 vim.keymap.set("n", "[E", function()
-	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+    require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 vim.keymap.set("n", "]E", function()
-	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+    require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
@@ -113,15 +111,15 @@ vim.keymap.set("n", '<F11>', function() require('dap').step_into() end)
 vim.keymap.set("n", '<F12>', function() require('dap').step_over() end)
 --automaticly add debuger shortkay if file is rust file
 vim.api.nvim_create_autocmd("BufRead", {
-	pattern = "*.rs",
-	callback = function()
-		vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
-	end,
+    pattern = "*.rs",
+    callback = function()
+        vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
+    end,
 })
 --automaticly add debuger shortkay if file is python file
 vim.api.nvim_create_autocmd("BufRead", {
-	pattern = "*.py",
-	callback = function()
-		vim.keymap.set("n", '<F5>', function() require('dap').continue() end)
-	end,
+    pattern = "*.py",
+    callback = function()
+        vim.keymap.set("n", '<F5>', function() require('dap').continue() end)
+    end,
 })

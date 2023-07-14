@@ -22,8 +22,13 @@ require('mason_config')               -- local
 require('lsp_servers')                -- local
 require('cmpsetup')                   -- local
 require('lsp_floating_window_border') -- local
-require('startup').setup({ theme = "startup_screen" })
-require("indent_blankline").setup({ show_current_context = true, show_current_context_start = true, })
+require('startup').setup({
+    theme = "startup_screen"
+})
+require("indent_blankline").setup({
+    show_current_context = true,
+    show_current_context_start = true,
+})
 require('oil_config')       -- local
 require('format_xml')       -- local
 require('discord_presence') -- local

@@ -13,6 +13,7 @@
 ------------------------------------------
 --      NEOVIM CONFIGURATION FILES
 ------------------------------------------
+--
 require('packer_config_and_packages') -- local
 require('theme_config')               -- local
 require('treesitter_config')          -- local

@@ -54,7 +54,7 @@ require('packer').startup({
         use({
             "glepnir/lspsaga.nvim",
             branch = "main",
-            config = function() require("lspsaga_setup") end, --local
+            config = function() require(".lspsaga_setup") end, --local
         })
         if is_bootstrap then require('packer').sync() end
     end,

@@ -9,10 +9,10 @@ local on_attach = function(client)
     require("lsp-format").on_attach(client)
 end
 --paths
-local mason_registry = require("mason-registry")
-local elixirls_path = mason_registry.get_package("elixir-ls"):get_install_path() .. "/language_server.sh"
-local codelldb_root = mason_registry.get_package("codelldb"):get_install_path() .. "/extension/"
-local debugpy_path = mason_registry.get_package("debugpy"):get_install_path() .. "/venv/bin/python"
+local lsp_servers_path = vim.fn.stdpath "data" .. "/lsp_servers/"
+local elixirls_path = lsp_servers_path .. "elixir-ls/language_server.sh"
+local codelldb_root = lsp_servers_path .. "codelldb/extension/"
+local debugpy_path = lsp_servers_path .. "debugpy/venv/bin/python"
 local codelldb_path = codelldb_root .. "adapter/codelldb"
 local liblldb_path = codelldb_root .. "lldb/lib/liblldb.so"
 --dap setup
@@ -169,10 +169,10 @@ require("flutter-tools").setup {
     lsp = {
         color = {
             -- show the derived colours for dart variables
-            enabled = true,                 -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
-            background = false,             -- highlight the background
-            foreground = true,              -- highlight the foreground
-            virtual_text = true,            -- show the highlight using virtual text
+            enabled = true, -- whether or not to highlight color variables at all, only supported on flutter >= 2.10
+            background = false, -- highlight the background
+            foreground = true, -- highlight the foreground
+            virtual_text = true, -- show the highlight using virtual text
             virtual_text_str = "■■color■■", -- the virtual text character to highlight
         },
         settings = {
@@ -266,6 +266,10 @@ require('lspconfig').intelephense.setup({
     }
 })
 
+require('lspconfig').jdtls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 -- web
 --
 require('lspconfig').elmls.setup {

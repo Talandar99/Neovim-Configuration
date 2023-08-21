@@ -56,6 +56,7 @@ require('packer').startup({
             branch = "main",
             config = function() require(".lspsaga_setup") end, --local
         })
+
         if is_bootstrap then require('packer').sync() end
     end,
     config = { clone_timeout = false }

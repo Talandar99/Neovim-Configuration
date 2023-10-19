@@ -34,18 +34,18 @@ require('packer').startup({
         use 'hrsh7th/vim-vsnip'
         use 'hrsh7th/vim-vsnip-integ'
         use 'akinsho/flutter-tools.nvim'
-        use 'Neevash/awesome-flutter-snippets'    --Dart/Flutter
-        use 'mhinz/vim-mix-format'                --Elixir
-        use 'mhinz/vim-signify'                   --Signify
-        use 'simrat39/rust-tools.nvim'            --Rust
+        use 'Neevash/awesome-flutter-snippets'                            --Dart/Flutter
+        use 'mhinz/vim-mix-format'                                        --Elixir
+        use 'mhinz/vim-signify'                                           --Signify
+        use 'simrat39/rust-tools.nvim'                                    --Rust
         use 'rust-lang/rust.vim'
-        use 'sindrets/diffview.nvim'              --Solving merge conflicts
-        use 'lukas-reineke/indent-blankline.nvim' --Indent blankline guides
-        use 'ThePrimeagen/harpoon'                --Harpoon
-        use 'mechatroner/rainbow_csv'             --csv rainbow colors
-        use 'stevearc/oil.nvim'                   --oil file explorer
-        use 'tpope/vim-surround'                  --surround
-        use 'tpope/vim-fugitive'                  --fugitive
+        use 'sindrets/diffview.nvim'                                      --Solving merge conflicts
+        use { 'lukas-reineke/indent-blankline.nvim', tag = "v2.20.8" } --Indent blankline guides
+        use 'ThePrimeagen/harpoon'                                        --Harpoon
+        use 'mechatroner/rainbow_csv'                                     --csv rainbow colors
+        use 'stevearc/oil.nvim'                                           --oil file explorer
+        use 'tpope/vim-surround'                                          --surround
+        use 'tpope/vim-fugitive'                                          --fugitive
         use 'nvim-lua/plenary.nvim'
         use 'nvim-telescope/telescope.nvim'
         use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code

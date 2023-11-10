@@ -18,6 +18,7 @@ require('mason-tool-installer').setup {
         { 'bash-language-server',        auto_update = true },
         { 'shellcheck',                  auto_update = true },
         -- duplicate ? ^
+        { 'clangd',                      auto_update = true },
         { 'lua-language-server',         auto_update = true },
         { 'jdtls',                       auto_update = true },
         { "codelldb",                    auto_update = true },

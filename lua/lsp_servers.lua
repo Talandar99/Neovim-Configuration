@@ -150,8 +150,8 @@ require("flutter-tools").setup {
     },
     closing_tags = {
         highlight = "Comment",
-        prefix = "// ", -- character to use for close tag e.g. > Widget
-        enabled = true  -- set to false to disable
+        prefix = "<-- ", -- character to use for close tag e.g. > Widget
+        enabled = true   -- set to false to disable
     },
     dev_tools = {
         autostart = true,          -- autostart devtools server if not detected
@@ -286,4 +286,8 @@ require('lspconfig').tailwindcss.setup {
 --}
 vim.g.LanguageClient_serverCommands = {
     sh = { 'bash-language-server', 'start' }
+}
+require('lspconfig').dartls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
 }

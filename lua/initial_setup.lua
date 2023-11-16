@@ -1,8 +1,9 @@
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true --no tabs only spaces
-
 vim.opt.incsearch = true
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 4
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.relativenumber = true

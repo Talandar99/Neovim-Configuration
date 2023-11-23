@@ -280,10 +280,10 @@ require('lspconfig').tailwindcss.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
---require('lspconfig').tsserver.setup {
---    on_attach = on_attach,
---    capabilities = capabilities
---}
+require('lspconfig').tsserver.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 vim.g.LanguageClient_serverCommands = {
     sh = { 'bash-language-server', 'start' }
 }

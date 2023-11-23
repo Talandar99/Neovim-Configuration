@@ -7,15 +7,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 require('packer').startup({
     function(use)
-        use 'wbthomason/packer.nvim'               --Package manager
-        use 'jiangmiao/auto-pairs'                 --Auto Pairs
-        use 'startup-nvim/startup.nvim'            --startup
-        use 'matze/vim-move'                       --lines movement
-        use 'chrisbra/Colorizer'                   --Colors highlight
-        use 'andweeb/presence.nvim'                --Discord pressence
-        use 'nvim-lualine/lualine.nvim'            --bottom bar
-        use 'folke/tokyonight.nvim'                --tokyonight theme
-        use 'kyazdani42/nvim-web-devicons'         --icons in your statusline
+        use 'wbthomason/packer.nvim'       --Package manager
+        use 'jiangmiao/auto-pairs'         --Auto Pairs
+        use 'startup-nvim/startup.nvim'    --startup
+        use 'matze/vim-move'               --lines movement
+        use 'chrisbra/Colorizer'           --Colors highlight
+        use 'andweeb/presence.nvim'        --Discord pressence
+        use 'nvim-lualine/lualine.nvim'    --bottom bar
+        use 'folke/tokyonight.nvim'        --tokyonight theme
+        use 'kyazdani42/nvim-web-devicons' --icons in your statusline
         use 'neovim/nvim-lspconfig'
         use 'williamboman/mason-lspconfig.nvim'
         use 'williamboman/mason.nvim'

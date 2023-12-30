@@ -34,6 +34,7 @@ require('packer').startup({
         use 'hrsh7th/vim-vsnip'
         use 'hrsh7th/vim-vsnip-integ'
         use 'akinsho/flutter-tools.nvim'
+        use "rafamadriz/friendly-snippets"                             -- LaTeX snippets
         use 'Neevash/awesome-flutter-snippets'                         --Dart/Flutter
         use 'mhinz/vim-mix-format'                                     --Elixir
         use 'mhinz/vim-signify'                                        --Signify

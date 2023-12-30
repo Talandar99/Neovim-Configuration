@@ -287,7 +287,7 @@ require('lspconfig').tsserver.setup {
 vim.g.LanguageClient_serverCommands = {
     sh = { 'bash-language-server', 'start' }
 }
-require('lspconfig').dartls.setup{
+require('lspconfig').dartls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }

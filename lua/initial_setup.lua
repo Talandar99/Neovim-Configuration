@@ -44,5 +44,6 @@ vim.g.mix_format_silent_errors = 1
 vim.cmd([[
     set undodir=~/.nvim-data/backup
     set undofile
+    let g:clang_format#style_options = {"ColumnLimit" : 120}
 ]]
 )

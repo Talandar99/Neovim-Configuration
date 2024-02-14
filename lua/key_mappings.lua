@@ -66,7 +66,7 @@ nmap gfc :Git fetch
 nmap grh :Git reset --hard
 nmap gbl :Git blame<CR>
 "open git
-nmap gq <cmd>0G<CR>
+nmap <leader>gg <cmd>0G<CR>
 "Jump though hunks
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)

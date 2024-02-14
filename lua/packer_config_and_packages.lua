@@ -15,6 +15,7 @@ require('packer').startup({
         use 'andweeb/presence.nvim'        --Discord pressence
         use 'nvim-lualine/lualine.nvim'    --bottom bar
         use 'folke/tokyonight.nvim'        --tokyonight theme
+        use 'lunarvim/horizon.nvim'        --tokyonight theme
         use 'kyazdani42/nvim-web-devicons' --icons in your statusline
         use 'neovim/nvim-lspconfig'
         use 'williamboman/mason-lspconfig.nvim'
@@ -49,8 +50,9 @@ require('packer').startup({
         use 'tpope/vim-surround'                                       --surround
         use 'tpope/vim-fugitive'                                       --fugitive
         use 'nvim-lua/plenary.nvim'
+        use 'luisjure/csound-vim'                                      -- csound
         use 'nvim-telescope/telescope.nvim'
-        use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
+        use { 'nvim-treesitter/nvim-treesitter', run = function()      -- Highlight, edit, and navigate code
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end, }
         use({

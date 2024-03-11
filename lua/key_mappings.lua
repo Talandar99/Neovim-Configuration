@@ -12,6 +12,7 @@ vim.keymap.set('n', '<leader>aa', "<cmd>wa!<CR>", { desc = 'write' })
 --harpoon
 local harpoon_mark = require('harpoon.mark')
 local harpoon_ui = require('harpoon.ui')
+
 vim.keymap.set('n', '<A-=>', harpoon_mark.add_file, { desc = 'add file to harpoon menu' })
 vim.keymap.set('n', '<A-->', harpoon_ui.toggle_quick_menu, { desc = 'open harpoon menu' })
 vim.keymap.set('n', '<A-1>', function() harpoon_ui.nav_file(1) end, { desc = 'harpoon go to 1st mark' })
@@ -29,7 +30,7 @@ vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
 -- open telescope (close have same binding)
---vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
+vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
 vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
 vim.keymap.set('n', '<C-s>', ':Telescope buffers<CR>', { noremap = true })
 -- split jumping
@@ -59,7 +60,6 @@ vim.cmd([[
 "paste and don't save previous option
 xnoremap <leader>p "_d1hp
 "Git fugitive
-nmap gq <cmd>0G<CR>
 nmap gps :Git push
 nmap gpl :Git pull
 nmap gfc :Git fetch

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/talandar/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1697887905/share/lua/5.1/?/init.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1697887905/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/talandar/.cache/nvim/packer_hererocks/2.1.1697887905/lib/lua/5.1/?.so"
+local package_path_str = "/home/talandar/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/home/talandar/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/talandar/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["csound-vim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/csound-vim",
+    url = "https://github.com/luisjure/csound-vim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -124,10 +129,20 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
     url = "https://github.com/akinsho/flutter-tools.nvim"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   harpoon = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["horizon.nvim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/horizon.nvim",
+    url = "https://github.com/lunarvim/horizon.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -195,6 +210,11 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -209,6 +229,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
+  },
+  ["org-bullets.nvim"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/org-bullets.nvim",
+    url = "https://github.com/nvim-orgmode/org-bullets.nvim"
+  },
+  orgmode = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/orgmode",
+    url = "https://github.com/nvim-orgmode/orgmode"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -255,6 +285,11 @@ _G.packer_plugins = {
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vim-clang-format"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-clang-format",
+    url = "https://github.com/rhysd/vim-clang-format"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -279,6 +314,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-table-mode"] = {
+    loaded = true,
+    path = "/home/talandar/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    url = "https://github.com/dhruvasagar/vim-table-mode"
   },
   ["vim-vsnip"] = {
     loaded = true,

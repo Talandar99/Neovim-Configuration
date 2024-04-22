@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup({
     ensure_installed = "all",
-    ignore_install = { "wing", "cpp", "java" },
+    ignore_install = { "wing", "cpp", "java", "org" },
     highlight = {
         enable = true,
         custom_captures = {

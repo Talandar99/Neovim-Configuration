@@ -43,6 +43,9 @@ require('packer').startup({
         use 'simrat39/rust-tools.nvim'                                 --Rust
         use 'rhysd/vim-clang-format'                                   --C
         use 'rust-lang/rust.vim'
+        use 'nvim-orgmode/orgmode'                                     --some heretic stuff
+        use 'nvim-orgmode/org-bullets.nvim'                            --some heretic stuff
+        use 'dhruvasagar/vim-table-mode'                               --some heretic stuff
         use 'sindrets/diffview.nvim'                                   --Solving merge conflicts
         use { 'lukas-reineke/indent-blankline.nvim', tag = "v2.20.8" } --Indent blankline guides
         use 'ThePrimeagen/harpoon'                                     --Harpoon
@@ -84,3 +87,8 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     group = packer_group,
     pattern = vim.fn.expand '$MYVIMRC',
 })
+require('orgmode').setup({
+    org_agenda_files = { '~/.org/*' },
+    org_default_notes_file = '~/.org/org_notes.org',
+})
+require('org-bullets').setup()

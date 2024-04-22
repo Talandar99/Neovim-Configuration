@@ -30,9 +30,8 @@ vim.keymap.set('n', '<leader>tu', ':lua require("harpoon.term").gotoTerminal(2)<
 vim.keymap.set('n', '<leader>ts', '<cmd>SignifyToggle<CR>', { desc = 'toggle signify' })
 vim.keymap.set('n', '<leader>th', '<cmd>SignifyToggle<CR>', { desc = 'toggle highlight' })
 -- open telescope (close have same binding)
-vim.keymap.set('n', '<C-z>', ':Telescope file_browser<CR>', { noremap = true })
-vim.keymap.set('n', '<C-c>', ':Telescope find_files<CR>', { noremap = true })
-vim.keymap.set('n', '<C-s>', ':Telescope buffers<CR>', { noremap = true })
+vim.keymap.set('n', '<leader><leader>', ':Telescope find_files<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true })
 -- split jumping
 vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<leader>j', '<C-w>j', { noremap = true })

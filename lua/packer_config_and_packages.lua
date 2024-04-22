@@ -26,6 +26,7 @@ require('packer').startup({
         use 'mfussenegger/nvim-dap-python'
         use 'jay-babu/mason-nvim-dap.nvim'
         use 'rcarriga/nvim-dap-ui'
+        use 'nvim-neotest/nvim-nio'
         use 'hrsh7th/cmp-nvim-lsp'
         use 'hrsh7th/cmp-buffer'
         use 'hrsh7th/cmp-path'

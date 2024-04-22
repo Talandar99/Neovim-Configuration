@@ -28,3 +28,4 @@ vim.cmd 'colorscheme tokyonight'
 
 vim.cmd 'hi LineNr guifg=#9aa5ce'
 vim.cmd 'hi CursorLineNr guifg=#ff9e64'
+vim.cmd 'hi Folded guibg=none'

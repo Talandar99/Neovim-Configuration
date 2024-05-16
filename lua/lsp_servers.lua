@@ -215,6 +215,10 @@ require('lspconfig').pylsp.setup {
         }
     }
 }
+require('lspconfig').robotframework_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
 require('lspconfig').elixirls.setup {
     --remember to install hex package manager with
     --mix local.hex

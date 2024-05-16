@@ -56,7 +56,8 @@ require('packer').startup({
         use 'nvim-lua/plenary.nvim'
         use 'luisjure/csound-vim'                                      -- csound
         use 'nvim-telescope/telescope.nvim'
-        use { 'nvim-treesitter/nvim-treesitter', run = function()      -- Highlight, edit, and navigate code
+        use 'mfukar/robotframework-vim'
+        use { 'nvim-treesitter/nvim-treesitter', run = function() -- Highlight, edit, and navigate code
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end, }
         use({

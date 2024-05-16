@@ -33,6 +33,7 @@ require('mason-tool-installer').setup {
         { "elm-language-server",         auto_update = true },
         { "typescript-language-server",  auto_update = true },
         { 'tailwindcss-language-server', auto_update = true },
+        { 'robotframework-lsp',          auto_update = true },
     },
     auto_update = true,
     run_on_start = true,

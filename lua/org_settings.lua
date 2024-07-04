@@ -3,18 +3,21 @@ vim.opt.conceallevel = 2
 
 require('orgmode').setup({
     org_agenda_files = { '~/workspace/notes/*' },
-    org_default_notes_file = '~/workspace/notes/notes.org',
+    org_default_notes_file = '~/workspace/notes/001_notes.org',
     win_split_mode = 'vsplit',
     win_border = 'rounded',
     org_hide_emphasis_markers = true, -- hide things like bold,italic etc
     org_time_stamp_rounding_minutes = 1,
     org_capture_templates = {
-        e = {
-            description = 'event ',
-            template = '** %?\n %^T',
+        c = {
+            description = 'Calendar event',
+            template = '* %?\n  %^T',
+            target = '~/workspace/notes/002_calendar.org',
         }
     }
 })
+
+
 require("org-bullets").setup({
     concealcursor = false, -- If false then when the cursor is on a line underlying characters are visible
     symbols = {

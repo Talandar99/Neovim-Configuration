@@ -33,3 +33,4 @@ require("indent_blankline").setup({
 })
 require('format_xml')       -- local
 require('discord_presence') -- local
+require('org_settings')     -- local

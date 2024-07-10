@@ -32,9 +32,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 --automaticly disable indent_blankline if .org
---vim.api.nvim_create_autocmd("BufRead", {
---    pattern = "*.org",
---    callback = function()
---        vim.api.nvim_command("IndentBlanklineDisable")
---    end,
---})
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.org",
+    callback = function()
+        vim.api.nvim_command("IndentBlanklineDisable")
+    end,
+})

@@ -108,32 +108,4 @@ vim.keymap.set("n", '<leader>b', function() require('dap').toggle_breakpoint() e
 vim.keymap.set("n", '<F10>', function() require('dap').continue() end)
 vim.keymap.set("n", '<F11>', function() require('dap').step_into() end)
 vim.keymap.set("n", '<F12>', function() require('dap').step_over() end)
---automaticly add debuger shortkey if file is rust file
-vim.api.nvim_create_autocmd("BufRead", {
-    pattern = "*.rs",
-    callback = function()
-        vim.keymap.set("n", '<F5>', '<cmd>RustDebuggables<CR>')
-    end,
-})
---automaticly add debuger shortkey if file is python file
-vim.api.nvim_create_autocmd("BufRead", {
-    pattern = "*.py",
-    callback = function()
-        vim.keymap.set("n", '<F5>', function() require('dap').continue() end)
-    end,
-})
---automaticly format file using ClangFormat if it's C file
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.c",
-    callback = function()
-        vim.api.nvim_command("ClangFormat")
-    end,
-})
-
---automaticly disable indent_blankline if .org
-vim.api.nvim_create_autocmd("BufRead", {
-    pattern = "*.org",
-    callback = function()
-        vim.api.nvim_command("IndentBlanklineDisable")
-    end,
-})
+--orgmode

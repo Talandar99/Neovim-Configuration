@@ -298,5 +298,5 @@ require('lspconfig').dartls.setup {
 require('lspconfig').openscad_lsp.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "openscad-lsp", "--stdio", "--fmt-style", "LLVM" },
+    cmd = { "openscad-lsp", "--stdio", "--fmt-style", "Chromium" },
 }

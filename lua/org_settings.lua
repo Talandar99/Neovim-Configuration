@@ -12,7 +12,7 @@ require('orgmode').setup({
     org_capture_templates = {
         c = {
             description = 'Calendar event',
-            template = '* %?\n  %^T',
+            template = '* %?\n  %^t',
             target = '~/workspace/notes/002_calendar.org',
         }
     },

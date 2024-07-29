@@ -36,12 +36,12 @@ require('packer').startup({
         use 'hrsh7th/vim-vsnip'
         use 'hrsh7th/vim-vsnip-integ'
         use 'akinsho/flutter-tools.nvim'
-        use "rafamadriz/friendly-snippets"     -- LaTeX snippets
-        use 'Neevash/awesome-flutter-snippets' --Dart/Flutter
-        use 'mhinz/vim-mix-format'             --Elixir
-        use 'mhinz/vim-signify'                --Signify
-        use 'simrat39/rust-tools.nvim'         --Rust
-        use 'rhysd/vim-clang-format'           --C
+        use "rafamadriz/friendly-snippets"                             -- LaTeX snippets
+        use 'Neevash/awesome-flutter-snippets'                         --Dart/Flutter
+        use 'mhinz/vim-mix-format'                                     --Elixir
+        use 'mhinz/vim-signify'                                        --Signify
+        use 'simrat39/rust-tools.nvim'                                 --Rust
+        use 'rhysd/vim-clang-format'                                   --C
         use 'rust-lang/rust.vim'
         use 'nvim-orgmode/orgmode'                                     --some heretic stuff
         use 'nvim-orgmode/org-bullets.nvim'                            --some heretic stuff

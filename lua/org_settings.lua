@@ -1,5 +1,5 @@
 -- conceal is used to hide elements when in normal mode
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
 --
 require('orgmode').setup({
     org_agenda_files = { '~/workspace/notes/*' },

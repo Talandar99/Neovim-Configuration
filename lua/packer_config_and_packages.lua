@@ -15,7 +15,6 @@ require('packer').startup({
         use 'andweeb/presence.nvim'        --Discord pressence
         use 'nvim-lualine/lualine.nvim'    --bottom bar
         use 'folke/tokyonight.nvim'        --tokyonight theme
-        use 'lunarvim/horizon.nvim'        --tokyonight theme
         use 'kyazdani42/nvim-web-devicons' --icons in your statusline
         use 'neovim/nvim-lspconfig'
         use 'williamboman/mason-lspconfig.nvim'
@@ -36,7 +35,7 @@ require('packer').startup({
         use 'hrsh7th/vim-vsnip'
         use 'hrsh7th/vim-vsnip-integ'
         use 'akinsho/flutter-tools.nvim'
-        use "rafamadriz/friendly-snippets"                             -- LaTeX snippets
+        use "rafamadriz/friendly-snippets"                             --LaTeX snippets
         use 'Neevash/awesome-flutter-snippets'                         --Dart/Flutter
         use 'mhinz/vim-mix-format'                                     --Elixir
         use 'mhinz/vim-signify'                                        --Signify

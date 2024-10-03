@@ -32,10 +32,19 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 --automaticly disable indent_blankline if .org
+--automaticly enable conceallevel if .org
 vim.api.nvim_create_autocmd("BufRead", {
     pattern = "*.org",
     callback = function()
         vim.api.nvim_command("IndentBlanklineDisable")
+        vim.opt.conceallevel = 2
+    end,
+})
+
+--automaticly enable conceallevel if .md
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.md",
+    callback = function()
         vim.opt.conceallevel = 2
     end,
 })

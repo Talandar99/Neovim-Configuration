@@ -48,3 +48,10 @@ vim.api.nvim_create_autocmd("BufRead", {
         vim.opt.conceallevel = 2
     end,
 })
+--custom highlight for zenscript
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = "*.zs",
+    callback = function()
+        vim.api.nvim_command("set filetype=ts")
+    end,
+})
